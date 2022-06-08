@@ -6,7 +6,7 @@ public class Kotik {
     private int satiety;
     private int weight;
     private static int count;
-    private final int METHODS = 5;
+    private static int METHODS = 5;
 
     public Kotik() {
         count++;
@@ -108,7 +108,7 @@ public class Kotik {
     }
 
     private void eat(int satiety) {
-        satiety = satiety + satiety;
+        satiety += getSatiety();
     }
 
     private void eat(int satiety, String foodName) {
@@ -126,35 +126,30 @@ public class Kotik {
                     if (satiety > 0) {
                         eat();
                         System.out.println(n + " - ел");
-                        satiety++;
                     } else System.out.println(n + " - " + play());
                     break;
                 case 2:
                     if (satiety > 0) {
                         eat();
                         System.out.println(n + " - спал");
-                        satiety++;
                     } else System.out.println(n + " - " + sleep());
                     break;
                 case 3:
                     if (satiety > 0) {
                         eat();
                         System.out.println(n + " - умывался");
-                        satiety++;
                     } else System.out.println(n + " - " + wash());
                     break;
                 case 4:
                     if (satiety > 0) {
                         eat();
                         System.out.println(n + " - гулял");
-                        satiety++;
                     } else System.out.println(n + " - " + walk());
                     break;
                 case 5:
                     if (satiety > 0) {
                         eat();
                         System.out.println(n + " - охотился");
-                        satiety++;
                     } else System.out.println(n + " - " + hunt());
                     break;
             }

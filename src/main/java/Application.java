@@ -13,7 +13,8 @@ public class Application {
         compareVoice(cat1, cat2);
         System.out.println("Колличество котиков " + Kotik.getCount());
     }
-    private static void compareVoice(Kotik cat1, Kotik cat2) {
+    private static boolean compareVoice(Kotik cat1, Kotik cat2) {
         System.out.println(cat1.getVoice()==cat2.getVoice());
+        return true;
     }
 }
