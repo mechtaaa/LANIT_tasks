@@ -108,11 +108,11 @@ public class Kotik {
     }
 
     private void eat(int satiety) {
-        satiety += getSatiety();
-        satiety++;
+        satiety += satiety;
     }
 
     private void eat(int satiety, String foodName) {
+        satiety++;
     }
 
     private void eat() {
@@ -129,6 +129,7 @@ public class Kotik {
                         System.out.println(n + " - ел");
                         satiety++;
                     } else System.out.println(n + " - " + play());
+                    satiety--;
                     break;
                 case 2:
                     if (satiety > 0) {
@@ -136,6 +137,7 @@ public class Kotik {
                         System.out.println(n + " - спал");
                         satiety++;
                     } else System.out.println(n + " - " + sleep());
+                    satiety--;
                     break;
                 case 3:
                     if (satiety > 0) {
@@ -143,6 +145,7 @@ public class Kotik {
                         System.out.println(n + " - умывался");
                         satiety++;
                     } else System.out.println(n + " - " + wash());
+                    satiety--;
                     break;
                 case 4:
                     if (satiety > 0) {
@@ -150,6 +153,7 @@ public class Kotik {
                         System.out.println(n + " - гулял");
                         satiety++;
                     } else System.out.println(n + " - " + walk());
+                    satiety--;
                     break;
                 case 5:
                     if (satiety > 0) {
@@ -157,6 +161,7 @@ public class Kotik {
                         System.out.println(n + " - охотился");
                         satiety++;
                     } else System.out.println(n + " - " + hunt());
+                    satiety--;
                     break;
             }
         }
