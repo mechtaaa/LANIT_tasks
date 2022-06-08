@@ -88,17 +88,17 @@ public class Kotik {
     }
 
     private boolean walk() {
-        if (satiety > 0) {
-            System.out.println("Котик гуляет");
-            satiety--;
-        } else {
+        if (satiety < 0) {
             System.out.println("Котик просит есть");
+            satiety++;
+        } else {
+            System.out.println("Котик гуляет");
         }
         return false;
     }
 
     private boolean hunt() {
-        if (satiety > 0) {
+        if (satiety < 0) {
             System.out.println("Котик охотится");
             satiety--;
         } else {
@@ -107,7 +107,7 @@ public class Kotik {
         return false;
     }
 
-    private void eat(String satietyUnit) {
+    private void eat(int satiety) {
         satiety += satiety;
     }
 
@@ -115,7 +115,7 @@ public class Kotik {
     }
 
     private void eat() {
-        eat(satiety, "Kitekat");
+        eat(2, "Kitekat");
     }
 
     public String[] liveAnotherDay() {
@@ -123,38 +123,38 @@ public class Kotik {
         for (int n = 0; n < result.length; n++) {
             switch ((int) (Math.random() * METHODS) + 1) {
                 case 1:
-                    if (satiety <= 0) {
+                    if (satiety > 0) {
                         eat();
                         System.out.println(n + " - ел");
-                        satiety--;
+                        satiety++;
                     } else System.out.println(n + " - " + play());
                     break;
                 case 2:
-                    if (satiety <= 0) {
+                    if (satiety >  0) {
                         eat();
                         System.out.println(n + " - спал");
-                        satiety--;
+                        satiety++;
                     } else System.out.println(n + " - " + sleep());
                     break;
                 case 3:
-                    if (satiety <= 0) {
+                    if (satiety >  0) {
                         eat();
                         System.out.println(n + " - умывался");
-                        satiety--;
+                        satiety++;
                     } else System.out.println(n + " - " + wash());
                     break;
                 case 4:
-                    if (satiety <= 0) {
+                    if (satiety >  0) {
                         eat();
                         System.out.println(n + " - гулял");
-                        satiety--;
+                        satiety++;
                     } else System.out.println(n + " - " + walk());
                     break;
                 case 5:
-                    if (satiety <= 0) {
+                    if (satiety > 0) {
                         eat();
                         System.out.println(n + " - охотился");
-                        satiety--;
+                        satiety++;
                     } else System.out.println(n + " - " + hunt());
                     break;
             }
