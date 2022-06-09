@@ -5,7 +5,7 @@ public class Application {
         Kotik cat1 = new Kotik("Pushok", "meow", 3 , 10);
         Kotik cat2 = new Kotik();
         cat2.setName("Tim");
-        cat2.setVoice("meow");
+        cat2.setVoice("myrr");
         cat2.setSatiety(3);
         cat2.setWeight(8);
         cat1.liveAnotherDay();
@@ -14,7 +14,7 @@ public class Application {
         System.out.println("Колличество котиков " + Kotik.getCount());
     }
     private static boolean compareVoice(Kotik cat1, Kotik cat2) {
-        System.out.println(cat1.getVoice()==cat2.getVoice());
-        return true;
+        cat1.getVoice().equals(cat2.getVoice());
+        return false;
     }
 }

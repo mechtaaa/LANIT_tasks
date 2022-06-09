@@ -148,7 +148,7 @@ public class Kotik {
                     }
                     break;
                 case 4:
-                    if (satiety > 0) {
+                    if (satiety > 1) {
                         System.out.println(n + " - гулял");
                 } else {
                     eat();
@@ -156,7 +156,7 @@ public class Kotik {
                 }
                     break;
                 case 5:
-                    if (satiety > 0) {
+                    if (satiety > 6) {
                         System.out.println(n + " - охотился");
                     } else {
                         eat();
