@@ -14,7 +14,7 @@ public class Application {
         System.out.println("Колличество котиков " + Kotik.getCount());
     }
     private static boolean compareVoice(Kotik cat1, Kotik cat2) {
-        cat1.getVoice().equals(cat2.getVoice());
-        return false;
+        System.out.println(cat1.getVoice()==cat2.getVoice());
+        return true;
     }
 }
