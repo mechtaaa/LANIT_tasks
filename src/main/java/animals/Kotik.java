@@ -112,6 +112,7 @@ public class Kotik {
     }
 
     private void eat(int satiety, String foodName) {
+        this.satiety += satiety;
     }
 
     private void eat() {
@@ -158,9 +159,8 @@ public class Kotik {
                     if (satiety > 0) {
                         System.out.println(n + " - охотился");
                     } else {
-                        eat(-1);
+                        eat();
                         System.out.println(n + " - ел");
-                        satiety++;
                     }
                     break;
             }
