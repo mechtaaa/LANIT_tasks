@@ -109,16 +109,16 @@ public class Kotik {
 
     private boolean eat(int satiety) {
         this.satiety += satiety;
-        return false;
+        return true;
     }
 
     private boolean eat(int satiety, String foodName) {
-        return false;
+        return true;
     }
 
     private boolean eat() {
         eat(1, "Kitekat");
-        return false;
+        return true;
     }
 
     public String[] liveAnotherDay() {
