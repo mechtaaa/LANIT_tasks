@@ -119,7 +119,7 @@ public class Kotik {
         eat(1, "Kitekat");
     }
 
-    public String[] liveAnotherDay() {
+    public void liveAnotherDay() {
         String[] result = new String[24];
         for (int n = 0; n < result.length; n++) {
             switch ((int) (Math.random() * METHODS) + 1) {
@@ -127,7 +127,7 @@ public class Kotik {
                     if (satiety > 0) {
                         System.out.println(n + " - играл");
                     } else {
-                        eat(2);
+                        eat(1);
                         System.out.println(n + " - ел");
                     }
                     break;
@@ -143,7 +143,7 @@ public class Kotik {
                     if (satiety > 0) {
                         System.out.println(n + " - мылся");
                     } else {
-                        eat(3);
+                        eat();
                         System.out.println(n + " - ел");
                     }
                     break;
@@ -159,12 +159,11 @@ public class Kotik {
                     if (satiety > 6) {
                         System.out.println(n + " - охотился");
                     } else {
-                        eat(2);
+                        eat();
                         System.out.println(n + " - ел");
                     }
                     break;
             }
         }
-        return result;
     }
 }
