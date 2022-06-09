@@ -56,7 +56,6 @@ public class Kotik {
         this.weight = weight;
     }
 
-
     private boolean play() {
         if (satiety > 0) {
             System.out.println("Котик играет");
