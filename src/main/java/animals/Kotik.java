@@ -107,15 +107,18 @@ public class Kotik {
         return false;
     }
 
-    private void eat(int satiety) {
+    private boolean eat(int satiety) {
         this.satiety += satiety;
+        return false;
     }
 
-    private void eat(int satiety, String foodName) {
+    private boolean eat(int satiety, String foodName) {
+        return false;
     }
 
-    private void eat() {
+    private boolean eat() {
         eat(1, "Kitekat");
+        return false;
     }
 
     public String[] liveAnotherDay() {
@@ -123,43 +126,43 @@ public class Kotik {
         for (int n = 0; n < result.length; n++) {
             switch ((int) (Math.random() * METHODS) + 1) {
                 case 1:
-                    if (play()) {
-                        result[n] = "Играл";
+                    if (satiety > 0) {
+                        System.out.println(n + " - играл");
                     } else {
                         eat();
-                        result[n] = "Ел";
+                        System.out.println(n + " - ел");
                     }
                     break;
                 case 2:
-                    if (sleep()) {
-                        result[n] = "Спал";
+                    if (satiety > 0) {
+                        System.out.println(n + " - спал");
                     } else {
                         eat(2);
-                        result[n] = "Ел";
+                        System.out.println(n + " - ел");
                     }
                     break;
                 case 3:
-                    if (wash()) {
-                        result[n] = "Мылся";
+                    if (satiety > 0) {
+                        System.out.println(n + " - мылся");
                     } else {
-                        eat();
-                        result[n] = "Ел";
+                        eat(3);
+                        System.out.println(n + " - ел");
                     }
                     break;
                 case 4:
-                    if (walk()) {
-                        result[n] = "Гулял";
-                    } else {
-                        eat();
-                        result[n] = "Ел";
-                    }
+                    if (satiety > 0) {
+                        System.out.println(n + " - гулял");
+                } else {
+                    eat();
+                        System.out.println(n + " - ел");
+                }
                     break;
                 case 5:
-                    if (hunt()) {
-                        result[n] = "Охотился";
+                    if (satiety > 0) {
+                        System.out.println(n + " - охотился");
                     } else {
-                        eat(3);
-                        result[n] = "Ел";
+                        eat();
+                        System.out.println(n + " - ел");
                     }
                     break;
             }
