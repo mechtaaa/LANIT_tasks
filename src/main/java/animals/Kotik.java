@@ -107,18 +107,15 @@ public class Kotik {
         return false;
     }
 
-    private boolean eat(int satiety) {
+    private void eat(int satiety) {
         this.satiety += satiety;
-        return true;
     }
 
-    private boolean eat(int satiety, String foodName) {
-        return true;
+    private void eat(int satiety, String foodName) {
     }
 
-    private boolean eat() {
+    private void eat() {
         eat(1, "Kitekat");
-        return true;
     }
 
     public String[] liveAnotherDay() {
@@ -161,8 +158,9 @@ public class Kotik {
                     if (satiety > 0) {
                         System.out.println(n + " - охотился");
                     } else {
-                        eat();
+                        eat(-1);
                         System.out.println(n + " - ел");
+                        satiety++;
                     }
                     break;
             }
