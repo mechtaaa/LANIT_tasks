@@ -119,51 +119,54 @@ public class Kotik {
         eat(1, "Kitekat");
     }
 
-    public void liveAnotherDay() {
+    public String [] liveAnotherDay(){
         String[] result = new String[24];
-        for (int n = 0; n < result.length; n++) {
+        for (int n = 0; n < result.length; n++)
+
+        {
             switch ((int) (Math.random() * METHODS) + 1) {
                 case 1:
-                    if (satiety > 0) {
-                        System.out.println(n + " - играл");
+                    if (play()) {
+                        result[n] = n + " - Играл";
                     } else {
-                        eat(1);
-                        System.out.println(n + " - ел");
+                        eat();
+                        result[n] = n + " - Ел";
                     }
                     break;
                 case 2:
-                    if (satiety > 0) {
-                        System.out.println(n + " - спал");
+                    if (sleep()) {
+                        result[n] = n + " - Спал";
                     } else {
                         eat(2);
-                        System.out.println(n + " - ел");
+                        result[n] = n + " - Ел";
                     }
                     break;
                 case 3:
-                    if (satiety > 0) {
-                        System.out.println(n + " - мылся");
+                    if (wash()) {
+                        result[n] = n + " - Мылся";
                     } else {
                         eat();
-                        System.out.println(n + " - ел");
+                        result[n] = n + " - Ел";
                     }
                     break;
                 case 4:
-                    if (satiety > 1) {
-                        System.out.println(n + " - гулял");
-                } else {
-                    eat(3);
-                        System.out.println(n + " - ел");
-                }
-                    break;
-                case 5:
-                    if (satiety > 6) {
-                        System.out.println(n + " - охотился");
+                    if (walk()) {
+                        result[n] = n + " - Гулял";
                     } else {
                         eat();
-                        System.out.println(n + " - ел");
+                        result[n] = n + " - Ел";
+                    }
+                    break;
+                case 5:
+                    if (hunt()) {
+                        result[n] = n + " - Охотился";
+                    } else {
+                        eat(3);
+                        result[n] = n + " - Ел";
                     }
                     break;
             }
         }
+        return result;
     }
 }
