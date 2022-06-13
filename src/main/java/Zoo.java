@@ -24,9 +24,9 @@ public class Zoo {
         worker.feed(duck, meat);
         worker.feed(fish, grass);
         worker.feed(kotik, grass);
-        worker.getVoice(duck.getVoice());
-        worker.getVoice(dog.getVoice());
-        worker.getVoice(camel.getVoice());
+        worker.getVoice(duck);
+        worker.getVoice(dog);
+        worker.getVoice(camel);
 
         duck.fly();
         dog.run();
@@ -40,5 +40,9 @@ public class Zoo {
         for(int i = 0;i<swim.length; i++){
             swim[i].swim();
         }
+        Zoo.createPond();
+    }
+    public static String [] createPond(){
+        return new String[4];
     }
 }

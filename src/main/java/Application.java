@@ -16,6 +16,7 @@ public class Application {
 
         compareVoice(cat1, cat2);
 
+
         System.out.println("Колличество котиков " + Kotik.getCount());
     }
 

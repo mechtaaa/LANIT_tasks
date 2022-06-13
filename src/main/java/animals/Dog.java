@@ -9,6 +9,7 @@ public class Dog extends Carnivorous implements Run,Swim, Voice{
     public void eat(Food food) {
         if(food instanceof Meat){
             System.out.println("Cобака ест мясо");
+            satiety++;
         } else System.out.println("Собака не ест траву");
     }
     @Override
@@ -18,7 +19,7 @@ public class Dog extends Carnivorous implements Run,Swim, Voice{
 
     @Override
     public String getVoice() {
-        String getVoice = "Собака лает";
+        String getVoice = "Гав";
         System.out.println(getVoice);
         return getVoice;
     }

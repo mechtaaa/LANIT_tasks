@@ -10,6 +10,7 @@ public class Duck extends Herbivore implements Voice, Run, Swim, Fly{
     public void eat(Food food) {
         if(food instanceof Grass){
             System.out.println("Утка ест траву");
+            satiety++;
         } else System.out.println("Утка не ест мясо");
     }
 
@@ -25,7 +26,7 @@ public class Duck extends Herbivore implements Voice, Run, Swim, Fly{
 
     @Override
     public String getVoice() {
-        String getVoice = "Утка крякает";
+        String getVoice = "Кря";
         System.out.println(getVoice);
         return getVoice;
     }

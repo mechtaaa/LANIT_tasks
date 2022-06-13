@@ -11,6 +11,7 @@ public class Worker{
 
     }
 
-    public void getVoice(String voice) {
+    public void getVoice(Voice getVoice) {
+        System.out.println(getVoice);
     }
 }

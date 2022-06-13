@@ -3,7 +3,7 @@ package animals;
 import food.Food;
 import food.Meat;
 
-public class Kotik extends Carnivorous implements Swim, Run{
+public class Kotik extends Carnivorous implements Swim, Run, Voice{
     private String name;
     private String voice;
     private int satiety;
@@ -176,6 +176,7 @@ public class Kotik extends Carnivorous implements Swim, Run{
     public void eat(Food food) {
         if(food instanceof Meat){
             System.out.println("Котик ест мясо");
+            satiety++;
         } else System.out.println("Котик не ест траву");
     }
     @Override
