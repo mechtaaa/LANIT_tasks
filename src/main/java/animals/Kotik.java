@@ -7,6 +7,7 @@ public class Kotik extends Carnivorous implements Swim, Run, Voice {
     private String name;
     private String voice;
     private int weight;
+    public int satiety;
     private static int count;
     private static final int METHODS = 5;
 
@@ -14,11 +15,21 @@ public class Kotik extends Carnivorous implements Swim, Run, Voice {
         count++;
     }
 
-    public Kotik(String name, String voice, int weight) {
+    public Kotik(String name, String voice,int satiety, int weight) {
         this.name = name;
+        this.satiety=satiety;
         this.voice = voice;
         this.weight = weight;
         count++;
+    }
+
+    public void setSatiety(int satiety) {
+        this.satiety = satiety;
+    }
+
+    @Override
+    public int getSatiety() {
+        return satiety;
     }
 
     public static int getCount() {
