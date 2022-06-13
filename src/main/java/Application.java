@@ -6,7 +6,6 @@ public class Application {
         Kotik cat2 = new Kotik();
         cat2.setName("Tim");
         cat2.setVoice("myr");
-        cat2.setSatiety(1);
         cat2.setWeight(8);
         cat1.liveAnotherDay();
         for(String action: cat1.liveAnotherDay()){
