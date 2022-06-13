@@ -42,7 +42,7 @@ public class Zoo {
         }
         Zoo.createPond();
     }
-    public static String [] createPond(){
-        return new String[4];
+    public static Swim[]  createPond(){
+        return new Swim[4];
     }
 }

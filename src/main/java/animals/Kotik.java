@@ -3,10 +3,9 @@ package animals;
 import food.Food;
 import food.Meat;
 
-public class Kotik extends Carnivorous implements Swim, Run, Voice{
+public class Kotik extends Carnivorous implements Swim, Run, Voice {
     private String name;
     private String voice;
-    private int satiety;
     private int weight;
     private static int count;
     private static final int METHODS = 5;
@@ -15,10 +14,9 @@ public class Kotik extends Carnivorous implements Swim, Run, Voice{
         count++;
     }
 
-    public Kotik(String name, String voice, int satiety, int weight) {
+    public Kotik(String name, String voice, int weight) {
         this.name = name;
         this.voice = voice;
-        this.satiety = satiety;
         this.weight = weight;
         count++;
     }
@@ -35,10 +33,6 @@ public class Kotik extends Carnivorous implements Swim, Run, Voice{
         return voice;
     }
 
-    public int getSatiety() {
-        return satiety;
-    }
-
     public int getWeight() {
         return weight;
     }
@@ -49,10 +43,6 @@ public class Kotik extends Carnivorous implements Swim, Run, Voice{
 
     public void setVoice(String voice) {
         this.voice = voice;
-    }
-
-    public void setSatiety(int satiety) {
-        this.satiety = satiety;
     }
 
     public void setWeight(int weight) {
@@ -121,11 +111,9 @@ public class Kotik extends Carnivorous implements Swim, Run, Voice{
         eat(satiety, "Kitekat");
     }
 
-    public String [] liveAnotherDay(){
+    public String[] liveAnotherDay() {
         String[] result = new String[24];
-        for (int n = 0; n < result.length; n++)
-
-        {
+        for (int n = 0; n < result.length; n++) {
             switch ((int) (Math.random() * METHODS) + 1) {
                 case 1:
                     if (play()) {
@@ -174,11 +162,12 @@ public class Kotik extends Carnivorous implements Swim, Run, Voice{
 
     @Override
     public void eat(Food food) {
-        if(food instanceof Meat){
+        if (food instanceof Meat) {
             System.out.println("Котик ест мясо");
             satiety++;
         } else System.out.println("Котик не ест траву");
     }
+
     @Override
     public void run() {
         System.out.println("Котик бежит");
