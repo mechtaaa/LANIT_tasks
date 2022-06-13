@@ -4,12 +4,6 @@ import food.Food;
 import food.Grass;
 
 public class Hare extends Herbivore implements Run{
-    int satiety;
-
-    public int getSatiety() {
-        return satiety;
-    }
-
     @Override
     public void eat(Food food) {
         if(food instanceof Grass){

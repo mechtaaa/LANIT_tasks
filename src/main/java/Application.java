@@ -15,10 +15,12 @@ public class Application {
         System.out.println(cat2.getName()+" " + cat2.getWeight());
 
         compareVoice(cat1, cat2);
+
         System.out.println("Колличество котиков " + Kotik.getCount());
     }
 
-    private static void compareVoice(Kotik cat1, Kotik cat2) {
+    private static boolean compareVoice(Kotik cat1, Kotik cat2) {
         System.out.println(cat1.getVoice().equals(cat2.getVoice()));
+        return false;
     }
 }

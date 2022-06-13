@@ -1,16 +1,16 @@
 package employee;
-
 import animals.Animal;
+import animals.Voice;
 import food.Food;
 
-public class Worker {
+
+public class Worker{
 
     public void feed(Animal animal, Food food){
        animal.eat(food);
 
     }
-    public Animal getVoice(Animal animal) {
-        System.out.println(animal.voice());
-        return animal;
+
+    public void getVoice(String voice) {
     }
 }

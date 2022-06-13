@@ -1,7 +1,8 @@
 package food;
 
 public class Grass extends Food{
-    public int getEnergy(){
-        return 2;
+    @Override
+    public int getEnergy() {
+        return 3;
     }
 }

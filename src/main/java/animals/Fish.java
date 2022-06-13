@@ -4,12 +4,6 @@ import food.Food;
 import food.Meat;
 
 public class Fish extends Carnivorous implements Swim{
-    int satiety;
-
-    public int getSatiety() {
-        return satiety;
-    }
-
     @Override
     public void eat(Food food) {
         if(food instanceof Meat){
@@ -18,8 +12,7 @@ public class Fish extends Carnivorous implements Swim{
     }
 
     @Override
-    public String swim() {
+    public void swim() {
         System.out.println("Рыба плывёт");
-        return null;
     }
 }

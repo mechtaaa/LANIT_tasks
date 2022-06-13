@@ -4,12 +4,6 @@ import food.Food;
 import food.Grass;
 
 public class Camel extends Herbivore implements Voice{
-   int satiety;
-
-    public int getSatiety() {
-        return satiety;
-    }
-
     @Override
     public void eat(Food food) {
         if(food instanceof Grass){
@@ -17,9 +11,12 @@ public class Camel extends Herbivore implements Voice{
         } else System.out.println("Верблюд не ест мясо");
     }
 
+
     @Override
-    public String voice() {
-        String voice = "Бегемот: фыркает";
-        return voice;
+    public String getVoice() {
+        String getVoice = "Верблюд фыркает";
+        System.out.println(getVoice);
+
+        return getVoice;
     }
 }

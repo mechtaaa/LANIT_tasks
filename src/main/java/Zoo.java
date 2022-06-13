@@ -4,8 +4,9 @@ import food.Grass;
 import food.Meat;
 
 public class Zoo {
+
+
     public static void main(String[] args){
-        Zoo zoo = new Zoo();
         Camel camel = new Camel();
         Dog dog = new Dog();
         Duck duck = new Duck();
@@ -22,25 +23,22 @@ public class Zoo {
         worker.feed(dog, meat);
         worker.feed(duck, meat);
         worker.feed(fish, grass);
-        worker.getVoice(duck);
-        worker.getVoice(kotik);
-        worker.getVoice(dog);
+        worker.feed(kotik, grass);
+        worker.getVoice(duck.getVoice());
+        worker.getVoice(dog.getVoice());
+        worker.getVoice(camel.getVoice());
 
         duck.fly();
         dog.run();
         hare.run();
 
-        String[] pond = new String[4];
-        pond[0] = dog.swim();
-        pond[1] = duck.swim();
-        pond[2] = kotik.swim();
-        pond[3] = fish.swim();
-
-        zoo.createPond();
-
-    }
-    public String[] createPond(){
-        String[] pond = new String[4];
-           return pond;
+        Swim[] swim = new Swim[4];
+        swim[0]=dog;
+        swim[1]=kotik;
+        swim[2]=duck;
+        swim[3]=fish;
+        for(int i = 0;i<swim.length; i++){
+            swim[i].swim();
+        }
     }
 }
