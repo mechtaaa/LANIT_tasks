@@ -1,21 +1,24 @@
 package animals;
 
-public class Kotik {
+import food.Food;
+import food.Meat;
+
+public class Kotik extends Carnivorous implements Swim, Run, Voice {
     private String name;
     private String voice;
-    private int satiety;
     private int weight;
     private static int count;
     private static final int METHODS = 5;
 
     public Kotik() {
+            this.name = "Котик";
         count++;
     }
 
-    public Kotik(String name, String voice, int satiety, int weight) {
+    public Kotik(String name, String voice,int satiety, int weight) {
         this.name = name;
+        this.satiety=satiety;
         this.voice = voice;
-        this.satiety = satiety;
         this.weight = weight;
         count++;
     }
@@ -32,10 +35,6 @@ public class Kotik {
         return voice;
     }
 
-    public int getSatiety() {
-        return satiety;
-    }
-
     public int getWeight() {
         return weight;
     }
@@ -46,10 +45,6 @@ public class Kotik {
 
     public void setVoice(String voice) {
         this.voice = voice;
-    }
-
-    public void setSatiety(int satiety) {
-        this.satiety = satiety;
     }
 
     public void setWeight(int weight) {
@@ -114,15 +109,13 @@ public class Kotik {
         this.satiety += satiety;
     }
 
-    private void eat() {
-        eat(1, "Kitekat");
+    public void eat() {
+        eat(satiety, "Kitekat");
     }
 
-    public String [] liveAnotherDay(){
+    public String[] liveAnotherDay() {
         String[] result = new String[24];
-        for (int n = 0; n < result.length; n++)
-
-        {
+        for (int n = 0; n < result.length; n++) {
             switch ((int) (Math.random() * METHODS) + 1) {
                 case 1:
                     if (play()) {
@@ -167,5 +160,24 @@ public class Kotik {
             }
         }
         return result;
+    }
+
+    @Override
+    public void eat(Food food) {
+        if (food instanceof Meat) {
+            System.out.println("Котик ест мясо");
+            satiety++;
+        } else System.out.println("Котик не ест траву");
+    }
+
+    @Override
+    public void run() {
+        System.out.println("Котик бежит");
+    }
+
+
+    @Override
+    public void swim() {
+        System.out.println("Котик плывёт");
     }
 }
