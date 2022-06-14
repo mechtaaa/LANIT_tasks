@@ -11,6 +11,7 @@ public class Kotik extends Carnivorous implements Swim, Run, Voice {
     private static final int METHODS = 5;
 
     public Kotik() {
+            this.name = "Котик";
         count++;
     }
 

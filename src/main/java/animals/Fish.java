@@ -1,15 +1,8 @@
 package animals;
 
-import food.Food;
-import food.Meat;
-
 public class Fish extends Carnivorous implements Swim{
-    @Override
-    public void eat(Food food) {
-        if(food instanceof Meat){
-            System.out.println("Рыба ест мясо");
-            satiety++;
-        } else System.out.println("Рыба не ест траву");
+    public Fish(){
+        this.name = "Рыба";
     }
 
     @Override
