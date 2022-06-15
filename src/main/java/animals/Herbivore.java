@@ -12,17 +12,15 @@ public  abstract class Herbivore extends Animal {
     }
 
     @Override
-    public int eat(Food food){
+    public int eat(Food food) {
         try {
-            if (food instanceof Meat) {
+            if (food instanceof Grass) {
                 throw new WrongFoodException("WrongFoodException");
-            } else if (food instanceof Grass)
-            System.out.println(name + " ест траву");
-            satiety = satiety+food.getEnergy();
-        } catch (WrongFoodException e) {
-            e.printStackTrace();
+            } else if (food instanceof Meat)
+                System.out.println(name + " ест траву");
+            satiety = satiety + food.getEnergy();
+        } finally {
+            return satiety;
         }
-
-        return satiety;
     }
 }
