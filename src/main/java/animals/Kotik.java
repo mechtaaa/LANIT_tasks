@@ -164,14 +164,6 @@ public class Kotik extends Carnivorous implements Swim, Run, Voice {
         }
         return result;
     }
-    @Override
-    public void eat(Food food) {
-        if (food instanceof Meat) {
-            System.out.println("Котик ест мясо");
-            satiety++;
-        } else System.out.println("Котик не ест траву");
-    }
-
 
     public Size getSize() {
         return Size.SMALL;
