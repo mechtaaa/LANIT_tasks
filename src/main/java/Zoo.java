@@ -2,13 +2,14 @@ import animals.*;
 import employee.Worker;
 import food.Grass;
 import food.Meat;
+import food.WrongFoodException;
 import model.Aviary;
 import model.Size;
 
 public class Zoo {
 
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws WrongFoodException {
         Camel camel = new Camel("Верблюд");
         Dog dog = new Dog("Собака");
         Duck duck = new Duck("Утка");
@@ -46,8 +47,8 @@ public class Zoo {
         return swim;
 
     }
-    static Aviary<Carnivorous> carnivorousAviary = new Aviary<>(Size.SMALL); //вальер для плотоядных маленького размера
-    static Aviary<Herbivore> herbivoreAviary = new Aviary<>(Size.MEDIUM); // вальер травоядных маленького разщмера
+    private static Aviary<Carnivorous> carnivorousAviary = new Aviary<>(Size.SMALL); //вальер для плотоядных маленького размера
+    private static Aviary<Herbivore> herbivoreAviary = new Aviary<>(Size.MEDIUM); // вальер травоядных маленького разщмера
     public static void fillCarnivorousAviary(){  // создает некоторое количество объектов хищников и добавляет их в вольер carnivorousAviary.
         Kotik kotik = new Kotik("Пушок");
         Dog dog = new Dog("Мухтар");

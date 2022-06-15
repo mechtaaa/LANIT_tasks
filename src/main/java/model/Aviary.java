@@ -6,8 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Aviary <T extends Animal>{
-    public Size size;
-    public Size getSize(){
+    private Size size;
+    private Size getSize(){
         return size;
     }
     public Aviary(Size size){

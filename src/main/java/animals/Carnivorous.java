@@ -11,7 +11,7 @@ public abstract class Carnivorous extends Animal {
     }
 
     @Override
-    public void eat(Food food){
+    public void eat(Food food) throws WrongFoodException{
         try {
             if (food instanceof Meat) {
                 throw new WrongFoodException("WrongFoodException");
