@@ -14,7 +14,7 @@ public class Aviary <T extends Animal>{
         this.size=size;
     }
 
-    private Map<String, T> aviaryMap = new HashMap<>();  //Для хранения животных в классе Aviary добавить поле HashMap<>
+    private HashMap<String, T> aviaryMap = new HashMap<>();  //Для хранения животных в классе Aviary добавить поле HashMap<>
         // В качестве ключа использовать уникальный идентификатор (имя животного, name),
         // а в качестве значения использовать животное - объект того же типа,
         // который используется в класс Aviary (универсальный параметр)

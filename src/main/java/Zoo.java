@@ -35,7 +35,6 @@ public class Zoo {
             i.swim();
         }
         fillCarnivorousAviary();
-        fillHerbivoreAviary();
 
     }
     public static Swim[]  createPond(){
