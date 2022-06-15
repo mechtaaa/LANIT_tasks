@@ -7,8 +7,12 @@ import food.WrongFoodException;
 
 public class Worker{
 
-    public void feed(Animal animal, Food food) throws WrongFoodException {
-       animal.eat(food);
+    public void feed(Animal animal, Food food) throws Exception {
+        try {
+            animal.eat(food);
+        } catch (WrongFoodException e) {
+            e.printStackTrace();
+        }
 
     }
 

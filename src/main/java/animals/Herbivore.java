@@ -18,8 +18,10 @@ public  abstract class Herbivore extends Animal {
                 throw new WrongFoodException("WrongFoodException");
             } else if (food instanceof Meat)
             System.out.println(name + " ест траву");
+            satiety++;
         } catch (WrongFoodException e) {
             e.printStackTrace();
         }
+
     }
 }

@@ -35,7 +35,7 @@ public class Zoo {
             i.swim();
         }
         fillCarnivorousAviary();
-        getCarnivorous("Нэмо");
+        fillHerbivoreAviary();
 
     }
     public static Swim[]  createPond(){
@@ -62,11 +62,11 @@ public class Zoo {
         herbivoreAviary.addAnimal(hare);
     }
 
-    public static void getCarnivorous(String name){
-        carnivorousAviary.getAnimal(name);
+    public static Carnivorous getCarnivorous(String name){
+       return carnivorousAviary.getAnimal(name);
     }
 
-    public static void getHerbivore(String name){
-        herbivoreAviary.getAnimal(name);
+    public static Herbivore getHerbivore(String name){
+       return herbivoreAviary.getAnimal(name);
     }
 }

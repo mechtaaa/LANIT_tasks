@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Aviary <T extends Animal>{
-    private Size size;
+    private final Size size;
     private Size getSize(){
         return size;
     }
@@ -14,13 +14,10 @@ public class Aviary <T extends Animal>{
         this.size=size;
     }
 
-    private Map<String, T> aviaryMap = new HashMap<>();{  //Для хранения животных в классе Aviary добавить поле HashMap<>
+    private Map<String, T> aviaryMap = new HashMap<>();  //Для хранения животных в классе Aviary добавить поле HashMap<>
         // В качестве ключа использовать уникальный идентификатор (имя животного, name),
         // а в качестве значения использовать животное - объект того же типа,
         // который используется в класс Aviary (универсальный параметр)
-
-    }
-
     public void addAnimal(T animal)  {  // добавить животное в вольер
         if(size.equals(animal.getSize())){
             aviaryMap.put(animal.getName(),animal);}
