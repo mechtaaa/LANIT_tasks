@@ -1,8 +1,10 @@
 package animals;
 
+import model.Size;
+
 public class Dog extends Carnivorous implements Run,Swim, Voice{
-    public Dog(){
-        this.name = "Собака";
+    public Dog(String name){
+        super(name);
     }
 
     @Override
@@ -12,13 +14,16 @@ public class Dog extends Carnivorous implements Run,Swim, Voice{
 
     @Override
     public String getVoice() {
-        String getVoice = "Гав";
-        System.out.println(getVoice);
-        return getVoice;
+        return "гав";
     }
 
     @Override
     public void swim() {
         System.out.println("Собака плывёт");
+    }
+
+
+    public Size getSize() {
+        return Size.MEDIUM;
     }
 }

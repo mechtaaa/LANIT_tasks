@@ -1,7 +1,8 @@
 package animals;
-
 import food.Food;
-import food.Meat;
+import food.Grass;
+import food.WrongFoodException;
+import model.Size;
 
 public class Kotik extends Carnivorous implements Swim, Run, Voice {
     private String name;
@@ -10,12 +11,13 @@ public class Kotik extends Carnivorous implements Swim, Run, Voice {
     private static int count;
     private static final int METHODS = 5;
 
-    public Kotik() {
-            this.name = "Котик";
+    public Kotik(String name) {
+        super(name);
         count++;
     }
 
     public Kotik(String name, String voice,int satiety, int weight) {
+        this(name);
         this.name = name;
         this.satiety=satiety;
         this.voice = voice;
@@ -162,12 +164,9 @@ public class Kotik extends Carnivorous implements Swim, Run, Voice {
         return result;
     }
 
-    @Override
-    public void eat(Food food) {
-        if (food instanceof Meat) {
-            System.out.println("Котик ест мясо");
-            satiety++;
-        } else System.out.println("Котик не ест траву");
+
+    public Size getSize() {
+        return Size.SMALL;
     }
 
     @Override

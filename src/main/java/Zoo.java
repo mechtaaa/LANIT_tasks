@@ -2,47 +2,70 @@ import animals.*;
 import employee.Worker;
 import food.Grass;
 import food.Meat;
+import model.Aviary;
+import model.Size;
 
 public class Zoo {
 
 
     public static void main(String[] args){
-        Camel camel = new Camel();
-        Dog dog = new Dog();
-        Duck duck = new Duck();
-        Fish fish = new Fish();
-        Hare hare = new Hare();
-        Kotik kotik = new Kotik();
-
+        Camel camel = new Camel("Верблюд");
+        Dog dog = new Dog("Собака");
+        Duck duck = new Duck("Утка");
+        Fish fish = new Fish("Рыба");
+        Hare hare = new Hare("Заяц");
+        Kotik kotik = new Kotik("Котик");
         Grass grass = new Grass();
         Meat meat = new Meat();
-
         Worker worker = new Worker();
 
-        worker.feed(camel, grass);
-        worker.feed(dog, meat);
-        worker.feed(duck, meat);
-        worker.feed(fish, grass);
-        worker.feed(kotik, grass);
+        camel.eat(grass);
+        dog.eat(meat);
+        duck.eat(meat);
+        fish.eat(grass);
+        kotik.eat(grass);
         worker.getVoice(duck);
         worker.getVoice(dog);
         worker.getVoice(camel);
-
         duck.fly();
-        dog.run();
         hare.run();
 
-        Swim[] swim = new Swim[4];
-        swim[0]=dog;
-        swim[1]=kotik;
-        swim[2]=duck;
-        swim[3]=fish;
-        for(int i = 0;i<swim.length; i++){
-            swim[i].swim();
+        for(Swim i : createPond()){
+            i.swim();
         }
-        Zoo.createPond();
+        fillCarnivorousAviary();
+        getCarnivorous("Нэмо");
+
     }
     public static Swim[]  createPond(){
-        return new Swim[4];
+        Swim[] swim = new Swim [4];
+        swim[0] = new Dog("собака");
+        swim[1] = new Kotik("котик");
+        swim[2] = new Duck("утка");
+        swim[3] = new Fish("рыба");
+        return swim;
+
+    }
+    static Aviary<Carnivorous> carnivorousAviary = new Aviary<>(Size.SMALL); //вальер для плотоядных маленького размера
+    static Aviary<Herbivore> herbivoreAviary = new Aviary<>(Size.MEDIUM); // вальер травоядных маленького разщмера
+    public static void fillCarnivorousAviary(){  // создает некоторое количество объектов хищников и добавляет их в вольер carnivorousAviary.
+        Kotik kotik = new Kotik("Пушок");
+        Dog dog = new Dog("Мухтар");
+        Fish fish = new Fish("Нэмо");
+        carnivorousAviary.addAnimal(fish);
+    }
+    public static void  fillHerbivoreAviary(){ // аналогично с травоядными
+        Duck duck = new Duck ("Утя");
+        Hare hare = new Hare ("Зая");
+
+        herbivoreAviary.addAnimal(hare);
+    }
+
+    public static void getCarnivorous(String name){
+        carnivorousAviary.getAnimal(name);
+    }
+
+    public static void getHerbivore(String name){
+        herbivoreAviary.getAnimal(name);
     }
 }
