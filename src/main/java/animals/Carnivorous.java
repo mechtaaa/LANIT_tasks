@@ -17,6 +17,6 @@ public abstract class Carnivorous extends Animal {
             } else if (food instanceof Meat)
                 System.out.println(name + " ест мясо");
             satiety = satiety+food.getEnergy();
-        return 0;
+        return satiety;
     }
         }

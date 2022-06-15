@@ -18,6 +18,6 @@ public  abstract class Herbivore extends Animal {
         } else if (food instanceof Grass)
             System.out.println(name + " ест траву");
         satiety = satiety+food.getEnergy();
-        return 0;
+        return satiety;
     }
 }
