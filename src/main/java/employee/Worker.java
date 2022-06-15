@@ -7,7 +7,7 @@ import food.WrongFoodException;
 
 public class Worker{
 
-    public void feed(Animal animal, Food food) throws Exception {
+    public void feed(Animal animal, Food food){
         try {
             animal.eat(food);
         } catch (WrongFoodException e) {

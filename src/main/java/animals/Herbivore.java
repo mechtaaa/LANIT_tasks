@@ -12,7 +12,7 @@ public  abstract class Herbivore extends Animal {
     }
 
     @Override
-    public void eat(Food food) throws WrongFoodException{
+    public void eat(Food food){
         try {
             if (food instanceof Grass) {
                 throw new WrongFoodException("WrongFoodException");
