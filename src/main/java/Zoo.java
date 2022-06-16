@@ -9,7 +9,7 @@ import model.Size;
 public class Zoo {
 
 
-    public static void main(String[] args) throws WrongFoodException {
+    public static void main(String[] args)throws WrongFoodException {
         Camel camel = new Camel("Верблюд");
         Dog dog = new Dog("Собака");
         Duck duck = new Duck("Утка");
@@ -35,6 +35,7 @@ public class Zoo {
             i.swim();
         }
         fillCarnivorousAviary();
+        getCarnivorous("Нэмо");
 
     }
     public static Swim[]  createPond(){
@@ -47,22 +48,28 @@ public class Zoo {
 
     }
     private static Aviary<Carnivorous> carnivorousAviary = new Aviary<>(Size.SMALL); //вальер для плотоядных маленького размера
-    private static Aviary<Herbivore> herbivoreAviary = new Aviary<>(Size.MEDIUM); // вальер травоядных маленького разщмера
+    private static Aviary<Herbivore> herbivoreAviary = new Aviary<>(Size.MEDIUM); // вальер травоядных среднего размера
     public static void fillCarnivorousAviary(){  // создает некоторое количество объектов хищников и добавляет их в вольер carnivorousAviary.
         Kotik kotik = new Kotik("Пушок");
         Dog dog = new Dog("Мухтар");
         Fish fish = new Fish("Нэмо");
+
         carnivorousAviary.addAnimal(fish);
+        carnivorousAviary.addAnimal(dog);
+        carnivorousAviary.addAnimal(kotik);
     }
     public static void  fillHerbivoreAviary(){ // аналогично с травоядными
         Duck duck = new Duck ("Утя");
         Hare hare = new Hare ("Зая");
 
         herbivoreAviary.addAnimal(hare);
+        herbivoreAviary.addAnimal(duck);
+
     }
 
     public static Carnivorous getCarnivorous(String name){
-       return carnivorousAviary.getAnimal(name);
+       return carnivorousAviary.getAnimal(name); //Cоздать внутренний статический метод getCarnivorous(String name),
+        // который возвращает экземпляр класса Carnivorous из коллекции carnivorousAviary по имени name.
     }
 
     public static Herbivore getHerbivore(String name){

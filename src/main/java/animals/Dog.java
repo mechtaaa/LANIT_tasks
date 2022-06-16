@@ -5,7 +5,8 @@ import model.Size;
 public class Dog extends Carnivorous implements Run,Swim, Voice{
     public Dog(String name){
         super(name);
-    }
+    } // консруктор наследников вызывает консруктор базового класса.
+    // public Animal(String name) { this.name = name;}
 
     @Override
     public void run() {
