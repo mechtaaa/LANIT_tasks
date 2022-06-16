@@ -5,7 +5,8 @@ import model.Size;
 public class Duck extends Herbivore implements Voice, Run, Swim, Fly{
     public Duck(String name){
         super(name);
-    }
+    } // консруктор наследников вызывает консруктор базового класса.
+    // public Animal(String name) { this.name = name;}
 
     @Override
     public void fly() {

@@ -9,7 +9,8 @@ public  abstract class Herbivore extends Animal {
 
     public Herbivore(String name) {
         super(name);
-    }
+    }// консруктор наследников вызывает консруктор базового класса.
+    // public Animal(String name) { this.name = name}
 
     @Override
     public int eat(Food food) throws WrongFoodException {

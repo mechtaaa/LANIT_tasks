@@ -1,9 +1,7 @@
 package model;
 
 import animals.Animal;
-
 import java.util.HashMap;
-import java.util.Map;
 
 public class Aviary <T extends Animal>{
     private Size size;
@@ -14,11 +12,12 @@ public class Aviary <T extends Animal>{
         this.size=size;
     }
 
-    private HashMap<String, T> aviaryMap = new HashMap<>();  //Для хранения животных в классе Aviary добавить поле HashMap<>
+    private HashMap<String, T> aviaryMap = new HashMap<>(); //Для хранения животных в классе Aviary добавить поле HashMap<>
         // В качестве ключа использовать уникальный идентификатор (имя животного, name),
         // а в качестве значения использовать животное - объект того же типа,
         // который используется в класс Aviary (универсальный параметр)
-    public void addAnimal(T animal)  {  // добавить животное в вольер
+
+    public void addAnimal(T animal)  {  // добавить животное в вольер с соответствующим типоп
         if(size.equals(animal.getSize())){
             aviaryMap.put(animal.getName(),animal);}
         else {

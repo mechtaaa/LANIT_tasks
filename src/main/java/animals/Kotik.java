@@ -1,8 +1,4 @@
 package animals;
-import food.Food;
-import food.Grass;
-import food.Meat;
-import food.WrongFoodException;
 import model.Size;
 
 public class Kotik extends Carnivorous implements Swim, Run, Voice {
@@ -13,7 +9,8 @@ public class Kotik extends Carnivorous implements Swim, Run, Voice {
     private static final int METHODS = 5;
 
     public Kotik(String name) {
-        super(name);
+        super(name); // консруктор наследников вызывает консруктор базового класса.
+        // public Animal(String name) { this.name = name;}
         count++;
     }
 
