@@ -1,15 +1,18 @@
 package animals;
 
+import model.Size;
+
 public class Camel extends Herbivore implements Voice{
-    public Camel(){
-        this.name = "Верблюд";
+    public Camel(String name){
+        super(name);
     }
 
     @Override
     public String getVoice() {
-        String getVoice = "Фыр";
-        System.out.println(getVoice);
+        return "фыр";
+    }
 
-        return getVoice;
+    public Size getSize() {
+        return Size.LARGE;
     }
 }
