@@ -1,17 +1,19 @@
 package model;
 
-public class Calculator {
-
+public class Calculator{
     public static String execute(String[] params) {
         String operator = params[0];
         double value1;
         double value2;
-        // todo: доработать код, чтобы все негативные тесты проходили успешно
         value1 = Double.parseDouble(params[1]);
         value2 = Double.parseDouble(params[2]);
         double result = calculate(operator, value1, value2);
-        if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) {
-            throw new CalculatorException("Превышен порог значений");
+        try {
+            if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) {
+            }
+
+        } catch (CalculatorException e) {
+            System.out.println("Превышен лимит");
         }
         return String.valueOf(result);
     }
@@ -39,14 +41,17 @@ public class Calculator {
     }
 
     private static double div(double a, double b) {
-        if (b == 0) {
-            throw new CalculatorException();
-        }
+       try {
+           if (b == 0) {
+
+           }
+       }catch (CalculatorException e){
+               System.out.println("Деление на ноль");
+           }
         return a / b;
-    }
+       }
 
     private static double mult(double a, double b) {
         return a * b;
     }
 }
-

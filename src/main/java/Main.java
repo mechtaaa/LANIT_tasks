@@ -1,5 +1,4 @@
 import model.Calculator;
-
 import java.util.Scanner;
 
 public class Main {
@@ -9,7 +8,14 @@ public class Main {
     }
 
     private static String[] readParams() {
-        // todo: считать из консоли данные, затем вернуть их в виде массива строк
-        return null;
+        Scanner in = new Scanner(System.in);
+        String operator = in.nextLine();
+        String fNumber = in.nextLine();
+        String tNumber = in.nextLine();
+        String[] params= new String[3];
+        params[0]=operator;
+        params[1]=fNumber;
+        params[2]=tNumber;
+        return params;
     }
 }
