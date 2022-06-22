@@ -5,13 +5,13 @@ import org.testng.annotations.Test;
 
 
 public class NegativeCalculatorTest{
-    @Test(dataProvider = "NegativeCalculatorTest")
-    public void negativeData(String operator, String firstNumber, String twoNumber){
-        Calculator.execute(new String[]{operator,firstNumber,twoNumber});
-    }
 
+      @Test(dataProvider = "NegativeCalculatorTest")
+    public void negativeTest(String operator, String firstNumber, String twoNumber){
+        Calculator.execute(new String[]{operator,firstNumber,twoNumber});
+      }
     @DataProvider(name = "NegativeCalculatorTest")
-    public Object[][] negativeTest(){
+    public Object[][] negativeData(){
         return new Object[][]{
                 {"-", "1", "1 " },
                 {"+", "1", "1"},
@@ -21,4 +21,5 @@ public class NegativeCalculatorTest{
                 {"+", String.valueOf(Integer.MAX_VALUE-1),"100"},
         };
     }
+
 }
