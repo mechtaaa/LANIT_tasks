@@ -11,9 +11,9 @@ public class NegativeCalculatorTest{
         Calculator.execute(new String[]{operator,firstNumber,twoNumber});
       }
     @DataProvider(name = "NegativeCalculatorTest")
-    public Object[][] negativeData(){
+    public Object[][] negativeData(String operator, String firstNumber, String twoNumber){
         return new Object[][]{
-                {"-", "1", "1 " },
+                {"-", "1", "1" },
                 {"+", "1", "1"},
                 {"*", "2", "2"},
                 {"/", "2", String.valueOf(0)},

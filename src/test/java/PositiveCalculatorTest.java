@@ -1,14 +1,12 @@
 
 import model.Calculator;
-import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 public class PositiveCalculatorTest{
 
-    @Test (dataProvider = "PositiveCalculatorTest")
-    public void pozitiveTest(String operation, String fNumber, String tNumber, double result) {
-        Calculator.execute(new String[]{operation,fNumber,tNumber, String.valueOf(result)});
-        Assert.assertEquals(result, result);
+    @Test(dataProvider = "PositiveCalculatorTest")
+    public void positiveTest(String operator, String firstNumber, String twoNumber, double result){
+        Calculator.execute(new String[]{operator,firstNumber,twoNumber, Double.toString(result) });
     }
     @DataProvider (name = "PositiveCalculatorTest")
     public Object[][] pozitiveData() {
