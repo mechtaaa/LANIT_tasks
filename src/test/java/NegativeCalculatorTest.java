@@ -20,7 +20,7 @@ public class NegativeCalculatorTest{
                 {"+", "0.5", "0.3"},
                 {"+", String.valueOf(Integer.MAX_VALUE-1),"100"},
                 {"-", "one", "two"},
-                {" ", " ", " "},
+                {"*", "1.52", "null"},
                 {"/", "-1.1", "-0.0"}
         };
     }

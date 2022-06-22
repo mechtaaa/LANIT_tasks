@@ -9,7 +9,7 @@ public class PositiveCalculatorTest{
         Calculator.execute(new String[]{operator,firstNumber,twoNumber, Double.toString(result) });
     }
     @DataProvider (name = "PositiveCalculatorTest")
-    public Object[][] pozitiveData() {
+    public Object[][] pozitiveData(String operator, String firstNumber, String twoNumber, double result) {
 
         return new Object[][]{
                 {"-", "1.2", "1.3", 1.5},
