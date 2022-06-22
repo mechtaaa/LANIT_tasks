@@ -8,7 +8,6 @@ public class Calculator{
         value1 = Double.parseDouble(params[1]);
         value2 = Double.parseDouble(params[2]);
         double result = calculate(operator, value1, value2);
-        String resultAll = String.valueOf(result);
         try {
             if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) {
             }
@@ -43,7 +42,7 @@ public class Calculator{
 
     private static double div(double a, double b) {
         if (b == 0) {
-            throw new CalculatorException();
+            throw new CalculatorException("Деление на ноль");
         }
         return a / b;
     }
