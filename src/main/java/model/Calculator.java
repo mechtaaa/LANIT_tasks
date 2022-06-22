@@ -8,6 +8,7 @@ public class Calculator{
         value1 = Double.parseDouble(params[1]);
         value2 = Double.parseDouble(params[2]);
         double result = calculate(operator, value1, value2);
+        String resultAll = String.valueOf(result);
         try {
             if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) {
             }
