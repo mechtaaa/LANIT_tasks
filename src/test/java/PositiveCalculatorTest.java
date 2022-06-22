@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 public class PositiveCalculatorTest{
 
     @Test (dataProvider = "PositiveCalculatorTest")
-    public void pozitiveTest(String operation, String fNumber, String tNumber, double result) {
+    public void pozitiveData(String operation, String fNumber, String tNumber, double result) {
         Calculator.execute(new String[]{operation,fNumber,tNumber, String.valueOf(result)});
         Assert.assertEquals(result, result);
     }
@@ -14,7 +14,7 @@ public class PositiveCalculatorTest{
     public Object[][] pozitiveTest() {
 
         return new Object[][]{
-                {"-", "1", "1", 0},
+                {"-", "1.2", "1.3", 1.5},
                 {"+", "1", "1", 2},
                 {"*", "2", "2", 4},
                 {"/", "8", "2", 4},
