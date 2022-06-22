@@ -8,7 +8,8 @@ public class NegativeCalculatorTest{
 
       @Test(dataProvider = "NegativeCalculatorTest")
     public void negativeTest(String operator, String firstNumber, String twoNumber){
-        Calculator.execute(new String[]{operator,firstNumber,twoNumber});
+          System.out.println(Calculator.execute(new String[]{operator,firstNumber,twoNumber}));
+          negativeData();
       }
     @DataProvider(name = "NegativeCalculatorTest")
     public Object[][] negativeData(){
@@ -20,7 +21,6 @@ public class NegativeCalculatorTest{
                 {"+", String.valueOf(Integer.MIN_VALUE -1),"100"},
                 {"-", "one", "two"},
                 {"*", "1.52", " "},
-                {"/", "-1.1", "-0.0"}
         };
     }
 
