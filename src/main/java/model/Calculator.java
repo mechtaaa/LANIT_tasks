@@ -42,15 +42,12 @@ public class Calculator {
     }
 
     private static double div(double a, double b) {
-       try{
-           if (b == 0) {
-           }
-       } catch(CalculatorException e)
-        {
-            System.out.println("Превышен лимит");
+        if (b == 0) {
+            throw new CalculatorException();
         }
         return a / b;
     }
+
     private static double mult(double a, double b) {
         return a * b;
     }
