@@ -18,7 +18,6 @@ public class Calculator {
     }
 
 
-
     private static double calculate(String operator, double a, double b) {
         switch (operator) {
             case "+":
@@ -42,9 +41,13 @@ public class Calculator {
     }
 
     private static double div(double a, double b) {
-        if (b == 0) {
-            throw new CalculatorException();
-        }
+       try{
+           if (b == 0) {
+               throw new CalculatorException();
+           }
+       } catch (CalculatorException e) {
+        System.out.println("Деление на ноль");
+    }
         return a / b;
     }
 

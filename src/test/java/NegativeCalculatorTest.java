@@ -1,5 +1,7 @@
 
 import model.Calculator;
+import model.CalculatorException;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -7,9 +9,11 @@ import org.testng.annotations.Test;
 public class NegativeCalculatorTest{
 
       @Test(dataProvider = "NegativeCalculatorTest")
-    public void negativeTest(String operator, String firstNumber, String twoNumber){
-          System.out.println(Calculator.execute(new String[]{operator,firstNumber,twoNumber}));
+    public void negativeTest(String operator, String firstNumber, String twoNumber) {
+          System.out.println(Calculator.execute(new String[]{operator, firstNumber, twoNumber}));
+          Assert.assertEquals(firstNumber, "null");
       }
+
     @DataProvider(name = "NegativeCalculatorTest")
     public Object[][] negativeData(){
         return new Object[][]{
