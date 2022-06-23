@@ -17,9 +17,9 @@ public class PositiveCalculatorTest{
                 {"-", "5", "10", -5},
                 {"+", "-1", "1", 0},
                 {"/", "8", "2", 4.0},
-                {"-", String.valueOf(Integer.MAX_VALUE - 1), "1", Integer.MAX_VALUE - 5},
-                {"-", String.valueOf(Integer.MAX_VALUE - 5), "4.99", Integer.MAX_VALUE - 1},
-                {"-", String.valueOf(Integer.MAX_VALUE - 1), "6", Integer.MAX_VALUE - 5},
+                {"-", String.valueOf(Integer.MAX_VALUE-0.01), "130", Integer.MAX_VALUE-130.01},
+                {"-", String.valueOf(Integer.MAX_VALUE-130), "129.99", Integer.MAX_VALUE-0.01},
+                {"-", String.valueOf(Integer.MAX_VALUE+1), "130", Integer.MAX_VALUE+131},
                 {"+", "0.5", "0.1", 0.59}
         };
     }
