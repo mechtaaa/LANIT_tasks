@@ -9,7 +9,6 @@ public class NegativeCalculatorTest{
       @Test(dataProvider = "NegativeCalculatorTest")
     public void negativeTest(String operator, String firstNumber, String twoNumber){
           System.out.println(Calculator.execute(new String[]{operator,firstNumber,twoNumber}));
-          negativeData();
       }
     @DataProvider(name = "NegativeCalculatorTest")
     public Object[][] negativeData(){

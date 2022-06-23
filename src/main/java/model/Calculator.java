@@ -1,6 +1,6 @@
 package model;
 
-public class Calculator{
+public class Calculator {
     public static String execute(String[] params) {
         String operator = params[0];
         double value1;
@@ -41,13 +41,16 @@ public class Calculator{
     }
 
     private static double div(double a, double b) {
-        if (b == 0) {
-            throw new CalculatorException("Деление на ноль");
+        try {
+            if (b == 0) {
+            }
+        }catch(CalculatorException e){
+                System.out.println("Деление на ноль");
+            }
+            return a / b;
         }
-        return a / b;
-    }
-
     private static double mult(double a, double b) {
         return a * b;
     }
+
 }
