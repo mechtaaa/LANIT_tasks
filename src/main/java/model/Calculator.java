@@ -43,7 +43,6 @@ public class Calculator {
     private static double div(double a, double b) {
        try{
            if (b == 0) {
-               throw new CalculatorException();
            }
        } catch (CalculatorException e) {
         System.out.println("Деление на ноль");
