@@ -8,12 +8,8 @@ public class Calculator {
         value1 = Double.parseDouble(params[1]);
         value2 = Double.parseDouble(params[2]);
         double result = calculate(operator, value1, value2);
-        try {
-            if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) {
-            }
-
-        } catch (CalculatorException e) {
-            System.out.println("Превышен лимит");
+        if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) {
+            throw new CalculatorException("Превышен порог значений");
         }
         return String.valueOf(result);
     }
@@ -41,14 +37,12 @@ public class Calculator {
     }
 
     private static double div(double a, double b) {
-        try {
-            if (b == 0) {
-            }
-        }catch(CalculatorException e){
-                System.out.println("Деление на ноль");
-            }
-            return a / b;
+        if (b == 0) {
+            throw new CalculatorException("Деление на ноль");
         }
+        return a / b;
+    }
+
     private static double mult(double a, double b) {
         return a * b;
     }
