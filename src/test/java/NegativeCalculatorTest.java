@@ -1,6 +1,5 @@
 
 import model.Calculator;
-import model.CalculatorException;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -15,10 +14,14 @@ public class NegativeCalculatorTest{
     public Object[][] negativeData(){
         return new Object[][]{
                 {"+", "-2147483648", "-1"},
-                {"/", "2", "0"},
+                {"+", "2147483647", "1"},
+                {"/", "1", "0"},
                 {"+", "1.52", " "},
+                {"*", "null", "null"},
                 {"-", "one", "two"},
-                {"/", "null", "null" }
+                {"/", "-1.1", "-0.0"},
+                {"null", "null", "null"},
+
         };
     }
 }
