@@ -14,8 +14,6 @@ public class Calculator {
         return String.valueOf(result);
     }
 
-
-
     private static double calculate(String operator, double a, double b) {
         switch (operator) {
             case "+":
