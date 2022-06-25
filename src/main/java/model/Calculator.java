@@ -7,10 +7,8 @@ public class Calculator {
         double value2;
         value1 = Double.parseDouble(params[1]);
         value2 = Double.parseDouble(params[2]);
-        double result = 0;
-        try {
-            result = calculate(operator, value1, value2);
-            if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) {
+        double result = calculate(operator, value1, value2);
+          try{   if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) {
             }
         } catch (CalculatorException e) {
             System.out.println("Ошибка границы");
@@ -42,9 +40,12 @@ public class Calculator {
     }
 
     private static double div(double a, double b) {
-        if (b == 0) {
-            throw new CalculatorException();
-        }
+       try {
+           if (b == 0) {
+           }
+       }catch (CalculatorException e){
+           System.out.println("Деление на ноль");
+       }
         return a / b;
     }
 
