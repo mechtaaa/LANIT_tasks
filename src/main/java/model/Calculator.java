@@ -7,12 +7,17 @@ public class Calculator {
         double value2;
         value1 = Double.parseDouble(params[1]);
         value2 = Double.parseDouble(params[2]);
-        double result = calculate(operator, value1, value2);
-        if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) {
-            throw new CalculatorException("Превышен порог значений");
+        double result = 0;
+        try {
+            result = calculate(operator, value1, value2);
+            if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) {
+            }
+        } catch (CalculatorException e) {
+            System.out.println("Ошибка границы");
         }
         return String.valueOf(result);
     }
+
 
     private static double calculate(String operator, double a, double b) {
         switch (operator) {
