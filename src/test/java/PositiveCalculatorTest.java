@@ -14,13 +14,13 @@ public class PositiveCalculatorTest{
     @DataProvider(name = "PositiveCalculatorTest")
     public Object[][] positiveData() {
         return new Object[][]{
-                {"+", "2", "2", 5},
+                {"+", "2", "2", 4},
                 {"+", "0.2", "0.3", 0.5},
                 {"-", "5", "10", -5},
                 {"+", "-1", "1", 0},
-                {"/", "8", "2", 4},
+                {"/", "1.25", "5", 0.2501},
                 {"*", "5", "5", 25},
-                {"-", "2.0", "1.1", 0.8999999999999999},
+                {"-", "2.0", "1.1", 0.9},
                 {"-", String.valueOf(Integer.MAX_VALUE -0.01), "123", Integer.MAX_VALUE -123.01},
                 {"+", String.valueOf(Integer.MAX_VALUE -123), "122.99", Integer.MAX_VALUE -0.01},
                 {"+", String.valueOf(Integer.MIN_VALUE +1), "123", Integer.MAX_VALUE -124}
