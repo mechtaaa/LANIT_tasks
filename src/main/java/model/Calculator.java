@@ -8,7 +8,7 @@ public class Calculator {
         String operator = params[0];
         double value1;
         double value2;
-        if (Objects.equals(operator, "")){
+        if (Objects.equals(operator, "") || operator != null){
             throw new CalculatorException("Пустая строка");
         }
         if(params[2]==null || params[2].equals("two")){
