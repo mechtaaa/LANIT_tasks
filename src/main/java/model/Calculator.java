@@ -8,11 +8,14 @@ public class Calculator {
         String operator = params[0];
         double value1;
         double value2;
-        if (Objects.equals(operator, "") || operator != null){
+        if (Objects.equals(operator, "")){
             throw new CalculatorException("Пустая строка");
         }
         if(params[2]==null || params[2].equals("two")){
             throw new CalculatorException("Второе значение не числовое");
+        }
+        if(params[1]==null){
+            throw new CalculatorException("Ошибка пустая строка");
         }
         value1 = Double.parseDouble(params[1]);
         value2 = Double.parseDouble(params[2]);

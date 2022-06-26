@@ -13,7 +13,7 @@ public class PositiveCalculatorTest{
     @DataProvider(name = "PositiveCalculatorTest")
     public Object[][] positiveData() {
         return new Object[][]{
-                {"+", "2", "2", 4},
+                {"+", "2", "2", 5},
                 {"-", "5", "10", -5},
                 {"+", "-1", "1", 0},
                 {"*", "5", "5", 25},
