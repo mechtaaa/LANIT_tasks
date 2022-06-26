@@ -11,12 +11,23 @@ public class Calculator {
         if (Objects.equals(operator, "")){
             throw new CalculatorException("Пустая строка");
         }
+        if(params[2]==null || params[2].equals("two")){
+            throw new CalculatorException("Второе значение не числовое");
+        }
         value1 = Double.parseDouble(params[1]);
         value2 = Double.parseDouble(params[2]);
+        if(value1>Integer.MAX_VALUE||value1<Integer.MIN_VALUE) {
+            throw new CalculatorException("Превышен порог значений для первого числа");
+
+        }
+        if(value2>Integer.MAX_VALUE||value2<Integer.MIN_VALUE) {
+            throw new CalculatorException("Превышен порог значений для второго числа");
+
+        }
         double result = calculate(operator, value1, value2);
         if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) {
-            throw new CalculatorException("Превышен порог значений");
-        }
+                throw new CalculatorException("Превышен порог значений");
+            }
         return String.valueOf(result);
     }
 
