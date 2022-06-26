@@ -6,10 +6,9 @@ public class Calculator {
 
     public static String execute(String[] params) {
         String operator = params[0];
-        if (Objects.equals(operator, "")) {
+        if (Objects.equals(operator, "")){
             throw new CalculatorException("Пустая строка");
         }
-
         double value1;
         double value2;
         // todo: доработать код, чтобы все негативные тесты проходили успешно
