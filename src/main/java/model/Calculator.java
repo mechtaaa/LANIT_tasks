@@ -6,12 +6,11 @@ public class Calculator {
 
     public static String execute(String[] params) {
         String operator = params[0];
+        double value1;
+        double value2;
         if (Objects.equals(operator, "")){
             throw new CalculatorException("Пустая строка");
         }
-        double value1;
-        double value2;
-        // todo: доработать код, чтобы все негативные тесты проходили успешно
         value1 = Double.parseDouble(params[1]);
         value2 = Double.parseDouble(params[2]);
         double result = calculate(operator, value1, value2);

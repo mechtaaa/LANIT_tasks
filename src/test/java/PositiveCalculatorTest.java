@@ -8,7 +8,7 @@ public class PositiveCalculatorTest{
     @Test(dataProvider = "PositiveCalculatorTest")
     public void positiveTest(String operator, String firstNumber, String twoNumber, double result) {
         System.out.println(Calculator.execute(new String[]{operator, firstNumber, twoNumber, String.valueOf(result)}));
-        // Assert.assertEquals(String.valueOf(result), Calculator.execute(new String[]{operator, firstNumber, twoNumber, String.valueOf(result)}));
+        Assert.assertEquals(String.valueOf(result), Calculator.execute(new String[]{operator, firstNumber, twoNumber, String.valueOf(result)}));
     }
     @DataProvider(name = "PositiveCalculatorTest")
     public Object[][] positiveData() {
@@ -22,7 +22,7 @@ public class PositiveCalculatorTest{
                 {"/", "10", "2", 5},
                 // {"-", String.valueOf(Integer.MAX_VALUE -0.01), "123", Integer.MAX_VALUE -123.01},
                 // {"+", String.valueOf(Integer.MAX_VALUE -123), "122.99", Integer.MAX_VALUE -0.01},
-                {"+", String.valueOf(Integer.MIN_VALUE +1), "123", -2.147483524E9}
+                {"+", String.valueOf(Integer.MAX_VALUE -5), "-1", 2.147483641E9}
         };
     }
 }

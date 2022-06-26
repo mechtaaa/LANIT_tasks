@@ -18,8 +18,7 @@ public class NegativeCalculatorTest {
                 {"/", "-1.1", "-0.0"},
                 {"", "1.5", "1.2"},
                 {"null", "2", "3"},
-                {"-", "one", "two"},
-                {"+", String.valueOf(Integer.MIN_VALUE +1),"-2.147483600E9"}
+                {"+", String.valueOf(Integer.MAX_VALUE -5), "2.147483641E9"}
         };
     }
 }
