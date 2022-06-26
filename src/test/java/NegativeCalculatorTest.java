@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 public class NegativeCalculatorTest {
 
-    @Test(dataProvider = "NegativeCalculatorTest",expectedExceptions = CalculatorException.class)
+    @Test(dataProvider = "NegativeCalculatorTest", expectedExceptions = ClassCastException.class)
     public void negativeTest(String operator, String firstNumber, String twoNumber) {
         System.out.println(Calculator.execute(new String[]{operator, firstNumber, twoNumber}));
     }
@@ -18,7 +18,9 @@ public class NegativeCalculatorTest {
                 {"/", "-1.1", "-0.0"},
                 {"", "1.5", "1.2"},
                 {"null", "2", "3"},
-                {"+", String.valueOf(Integer.MAX_VALUE -5), "2.147483641E9"}
+                {"-", "one", "two"},
+                {"+", String.valueOf(Integer.MAX_VALUE +0.001), "0.1"},
+                {"+", String.valueOf(Integer.MIN_VALUE -0.001), "-0.1"}
         };
     }
 }
