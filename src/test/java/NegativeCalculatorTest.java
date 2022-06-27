@@ -21,7 +21,7 @@ public class NegativeCalculatorTest {
                 {"-", "one", "two"},
                 {"*", "", "23"},
                 {"+", String.valueOf(Integer.MAX_VALUE +0.001), "0.1"},
-                {"+", String.valueOf(Integer.MIN_VALUE -0.001), "-0.1"}
+                {"+", String.valueOf(Integer.MIN_VALUE -0.001), "-0.1"},
         };
     }
 }
