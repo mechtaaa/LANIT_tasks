@@ -15,7 +15,7 @@ public class Calculator {
             throw new CalculatorException("Второе значение не числовое");
         }
         if(params[1].equals("")){
-            throw new CalculatorException("Пустая строка");
+            throw new CalculatorException("Первое значение пустая строка");
         }
         value1 = Double.parseDouble(params[1]);
         value2 = Double.parseDouble(params[2]);
