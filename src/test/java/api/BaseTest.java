@@ -3,6 +3,7 @@ package api;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.LogDetail;
+import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
 import model.AuthToken;
 import model.Status;
@@ -23,14 +24,14 @@ public abstract class BaseTest {
              throw new RuntimeException("В файле \"resources\"config.properties\" отсутствует значение \"base.uri\"");
          }
         RestAssured.requestSpecification = new RequestSpecBuilder()
-                .setBaseUri("https://at-sandbox.workbench.lanit.ru/")
-                .addHeader("Authorization", "Token " + "0979e0b6ce2e2d74f7c0ffbf4d28cdfe9dd1cb47")
+                .setBaseUri(baseUri)
                 .setContentType(ContentType.JSON)
                 .setAccept(ContentType.JSON)
                 .log(LogDetail.ALL)
                 .build();
 
-        // todo: подготовить глобальные преднастройки для запросов
+         RestAssured.filters(new ResponseLoggingFilter());
+         // todo: подготовить глобальные преднастройки для запросов
     }
 
     protected AuthToken login(){
@@ -38,7 +39,14 @@ public abstract class BaseTest {
 AuthToken login = new AuthToken();
 login.setUsername(System.getProperty("username"));
 login.setPassword(System.getProperty("password"));
-        return login;
+        return given()
+                .body(login)
+                .when()
+                .post("/api/login")
+                .then()
+                .statusCode(200)
+                .extract().body().as(AuthToken.class);
+
     }
 
     protected Ticket buildNewTicket(Status status, int priority) {
@@ -55,20 +63,19 @@ login.setPassword(System.getProperty("password"));
         ticketOne.setResolution("string");
         ticketOne.setPriority(priority);
         ticketOne.setSecret_key("14a25e73-796b-4f41-a345-7b8aaf82e30b");
-        ticketOne.setQueue(1);
-        ticketOne.setKbitem(1);
+        ticketOne.setQueue(2);
+        ticketOne.setKbitem(2);
         ticketOne.setMerged_to(2);
-        // todo: создать объект с тестовыми данными
         return ticketOne;
+        // todo: создать объект с тестовыми данными
     }
 
     protected Ticket createTicket(Ticket ticket){
-
-        // todo: отправить HTTP запрос для создания тикета
         return given()
                 .body(ticket)
                 .when()
                 .post("/api/tickets")
                 .then().statusCode(201).extract().body().as(Ticket.class);
+        // todo: отправить HTTP запрос для создания тикета
     }
 }

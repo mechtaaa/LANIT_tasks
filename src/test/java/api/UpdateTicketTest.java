@@ -21,6 +21,7 @@ public class UpdateTicketTest extends BaseTest {
       Ticket ticket1 = new Ticket();
       ticket1.setStatus(1);
       given()
+              .header("Authorization", "Token 0979e0b6ce2e2d74f7c0ffbf4d28cdfe9dd1cb47")
               .body(ticket1)
               .pathParam("id", ticket.getId())
               .when()
