@@ -178,19 +178,6 @@ public class Ticket {
         this.merged_to = merged_to;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Ticket ticket = (Ticket) o;
-        return Objects.equals(id, ticket.id) && Objects.equals(due_date, ticket.due_date) && Objects.equals(assigned_to, ticket.assigned_to) && Objects.equals(title, ticket.title) && Objects.equals(created, ticket.created) && Objects.equals(modified, ticket.modified) && Objects.equals(submitter_email, ticket.submitter_email) && Objects.equals(status, ticket.status) && Objects.equals(on_hold, ticket.on_hold) && Objects.equals(description, ticket.description) && Objects.equals(resolution, ticket.resolution) && Objects.equals(priority, ticket.priority) && Objects.equals(last_escalation, ticket.last_escalation) && Objects.equals(secret_key, ticket.secret_key) && Objects.equals(queue, ticket.queue) && Objects.equals(kbitem, ticket.kbitem) && Objects.equals(merged_to, ticket.merged_to);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, due_date, assigned_to, title, created, modified, submitter_email, status, on_hold, description, resolution, priority, last_escalation, secret_key, queue, kbitem, merged_to);
-    }
-
     public Integer getId() {
         return id;
     }
@@ -199,5 +186,17 @@ public class Ticket {
         this.id = id;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Ticket ticket = (Ticket) o;
+        return Objects.equals(title, ticket.title) && Objects.equals(status, ticket.status)
+                && Objects.equals(priority, ticket.priority) && Objects.equals(queue, ticket.queue);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, status, priority, queue);
+    }
 }

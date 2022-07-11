@@ -7,11 +7,8 @@ import io.restassured.http.ContentType;
 import model.AuthToken;
 import model.Status;
 import model.Ticket;
-
 import org.testng.annotations.BeforeClass;
-
 import java.io.IOException;
-
 import static io.restassured.RestAssured.given;
 
 

@@ -1,8 +1,8 @@
 package api;
 
 import model.Ticket;
+import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import static io.restassured.RestAssured.given;
 import static model.Status.OPEN;
 
@@ -11,13 +11,11 @@ public class CreateTicketTest extends BaseTest {
 
      @Test
     public void createTicketTest(){
-         given()
-                 .body(createTicket(buildNewTicket(OPEN, 1)));
-
-         given()
-                 .body(getTicket(2718));
-
-        // todo: создать тикет и проверить, что он находится в системе
+         Ticket ticket = createTicket(buildNewTicket(OPEN, 1));
+         Assert.assertEquals(buildNewTicket(OPEN, 1), ticket);
+         Ticket ticketTwo = getTicket(ticket.getId());
+         Assert.assertEquals(buildNewTicket(OPEN, 1), ticketTwo);
+         // todo: создать тикет и проверить, что он находится в системе
     }
 
     protected Ticket getTicket(int id) {
