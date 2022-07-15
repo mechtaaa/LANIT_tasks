@@ -9,6 +9,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import static models.Dictionaries.getPriority;
+import static models.Dictionaries.getQueue;
+
 /** Страница просмотра карточки тикета (неавторизированный пользователь) */
 public class ViewPage extends HelpdeskBasePage {
 
@@ -41,8 +44,11 @@ public class ViewPage extends HelpdeskBasePage {
     @Step("Проверить значение полей на карточке тикета")
     public ViewPage checkTicket(Ticket ticket) {
         Assert.assertTrue(getTicketTitle().contains(ticket.getTitle()), "Имя тикета не соответствует");
-        // todo: добавить проверки
-        return this;
+        Assert.assertTrue(queue.getText().contains(getQueue(ticket.getQueue())), "Имя очереди не соответствует");
+        Assert.assertTrue(email.getText().contains(ticket.getSubmitter_email()), "e-mail Не соответствует");
+        Assert.assertTrue(priority.getText().contains(getPriority(ticket.getPriority())), "Приоритет не соответствует");
+        Assert.assertTrue(description.getText().contains(ticket.getDescription()), "Имя тикета не соответствует");
+    return this;
     }
 
     @Step("Получить заголовок тикета")
@@ -57,7 +63,6 @@ public class ViewPage extends HelpdeskBasePage {
 
         return ticketTitle.getText();
     }
-
     @Step("Сохранить id тикета в объект")
     public void saveId(Ticket ticket) {
         String captionText = caption.getText();

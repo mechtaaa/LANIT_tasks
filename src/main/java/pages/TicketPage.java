@@ -4,6 +4,10 @@ import io.qameta.allure.Step;
 import models.Ticket;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+
+import static models.Dictionaries.getPriority;
+import static models.Dictionaries.getQueue;
 
 /** Страница отдельного тикета (авторизированный пользователь) */
 public class TicketPage extends HelpdeskBasePage {
@@ -18,14 +22,23 @@ public class TicketPage extends HelpdeskBasePage {
     private WebElement dueDate = driver.findElement(By.xpath("//th[text()='Due Date']/following-sibling::td[1]"));
 
     // todo: проинициализировать элементы через driver.findElement
-    private WebElement title = driver.findElement(By.xpath("//th[text()='Summary of the problem']/following-sibling::td[1]"));
+    private WebElement title = driver.findElement(By.xpath("//th[h3]"));
     private WebElement queue = driver.findElement(By.xpath("//th[contains(text(), 'Queue:')]"));
-    private WebElement email = driver.findElement(By.xpath("//th[(text()=''Submitter E-Mail')]/following-sibling::td[1]"));
-    private WebElement priority = driver.findElement(By.xpath("//th[(text()='Priority')/following-sibling::td[1]"));
-    private WebElement description = driver.findElement(By.xpath("//th[text()='Description')/following-sibling::td[1]"));
+    private WebElement email = driver.findElement(By.xpath("//th[text()='Submitter E-Mail']/following-sibling::td[1]"));
+    private WebElement priority = driver.findElement(By.xpath("//th[text()='Priority']/following-sibling::td[1]"));
+    private WebElement description = driver.findElement(By.xpath("//h4[text()='Description']/following-sibling::p[1]"));
+
 
     @Step("Проверить значение полей на странице тикета")
     public void checkTicket(Ticket ticket) {
+        Assert.assertTrue(title.getText().contains(ticket.getTitle()), "Имя тикета не соответствует");
+        Assert.assertTrue(dueDate.getText().contains("July 28, 2022, 9:15 a.m."), "Дата тикета не соответствует");
+        Assert.assertTrue(queue.getText().contains(getQueue(ticket.getQueue())), "Имя очереди не соответствует");
+        Assert.assertTrue(email.getText().contains(ticket.getSubmitter_email()), "e-mail Не соответствует");
+        Assert.assertTrue(priority.getText().contains(getPriority(ticket.getPriority())), "Приоритет не соответствует");
+        Assert.assertTrue(description.getText().contains(ticket.getDescription()), "Имя тикета не соответствует");
+
+
         // todo: добавить реализацию метода
     }
 }
