@@ -48,7 +48,7 @@ public class HelpdeskUITest{
     @Test
     public void createTicketTest() {
         ticket = buildNewTicket();
-        driver.get(System.getProperty("site.uri"));
+        driver.get(System.getProperty("site.url"));
 
         MainMenu mainMenu = new MainMenu(driver);
         mainMenu.clickOnNewTicketButton();
