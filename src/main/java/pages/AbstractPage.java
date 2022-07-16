@@ -29,4 +29,5 @@ public abstract class AbstractPage {
         }
         return ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
     }
+
 }
