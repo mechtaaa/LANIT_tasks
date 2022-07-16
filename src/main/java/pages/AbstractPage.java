@@ -1,15 +1,6 @@
 package pages;
 
-import io.qameta.allure.Attachment;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import ru.yandex.qatools.ashot.AShot;
-import ru.yandex.qatools.ashot.Screenshot;
-
-import javax.imageio.ImageIO;
-import java.io.File;
-import java.io.IOException;
 
 /** Элементы общие для всех страниц */
 public abstract class AbstractPage {
@@ -19,14 +10,5 @@ public abstract class AbstractPage {
     public static void setDriver(WebDriver webDriver) {
         driver = webDriver;
     }
-    @Attachment(value = "{screenName}", type = "image/png")
-    public static byte[] getScreenShot(String screenName){
-        Screenshot screenshot = new AShot().takeScreenshot(driver);
-        try {
-            ImageIO.write(screenshot.getImage(), "png", new File("D:" + screenName + ".png"));
-        }catch (IOException e) {
-            e.printStackTrace();
-        }
-        return ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
-    }
 }
+
