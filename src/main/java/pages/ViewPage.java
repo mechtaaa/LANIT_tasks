@@ -1,13 +1,16 @@
 package pages;
 
+import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 import models.Ticket;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import ru.yandex.qatools.ashot.AShot;
 
 import static models.Dictionaries.getPriority;
 import static models.Dictionaries.getQueue;
@@ -48,7 +51,8 @@ public class ViewPage extends HelpdeskBasePage {
         Assert.assertTrue(email.getText().contains(ticket.getSubmitter_email()), "e-mail Не соответствует");
         Assert.assertTrue(priority.getText().contains(getPriority(ticket.getPriority())), "Приоритет не соответствует");
         Assert.assertTrue(description.getText().contains(ticket.getDescription()), "Имя тикета не соответствует");
-    return this;
+        getScreenShot("checkTicket");
+        return this;
     }
 
     @Step("Получить заголовок тикета")
@@ -60,7 +64,7 @@ public class ViewPage extends HelpdeskBasePage {
 
         // поиск с ожиданием по условию
         WebElement ticketTitle = new WebDriverWait(driver, 5).until(condition);
-
+        getScreenShot("getTicketTitle");
         return ticketTitle.getText();
     }
     @Step("Сохранить id тикета в объект")
@@ -68,6 +72,6 @@ public class ViewPage extends HelpdeskBasePage {
         String captionText = caption.getText();
         String id = captionText.substring(captionText.indexOf("-") + 1, captionText.indexOf("]"));
         ticket.setId(Integer.parseInt(id));
+        getScreenShot("saveId");
     }
 }
-

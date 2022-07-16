@@ -8,6 +8,4 @@ public class MainPage extends HelpdeskBasePage {
     public MainPage() {
         PageFactory.initElements(driver, this);
     }
-
 }
-
