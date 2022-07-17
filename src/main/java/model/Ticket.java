@@ -1,40 +1,61 @@
-package models;
+package model;
 
-import java.io.File;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
+
+/** Объект тикета (POJO) */
 public class Ticket {
-
-    /* Класс Ticket пакета models реализуем по аналогии c домашним заданием по тестированию API.
-       Класс должен содержать набор полей, необходимый для заполнения формы создания тикета.
-       Тип данных для каждого поля должен соответствовать документации swagger (см. раздел Models в документации). */
-
-    // todo: остальные поля класса
+    @SerializedName("id")
     private Integer id;
+
+    @SerializedName("due_date")
     private String due_date;
+    @JsonIgnore
+    @SerializedName("assigned_to")
     private String assigned_to;
+    @SerializedName("title")
     private String title;
+    @SerializedName("created")
     private String created;
+    @SerializedName("modified")
     private String modified;
+    @SerializedName("submitter_email")
     private String submitter_email;
+    @SerializedName("status")
     private Integer status;
+    @SerializedName("on_hold")
     private Boolean on_hold;
+    @SerializedName("description")
     private String description;
+    @SerializedName("resolution")
     private String resolution;
+    @SerializedName("priority")
     private Integer priority;
+    @SerializedName("last_escalation")
     private String last_escalation;
+
+    @SerializedName("secret_key")
     private String secret_key;
+
+    @SerializedName("queue")
     private Integer queue;
+    @JsonIgnore
+    @SerializedName("kbitem")
     private Integer kbitem;
+    @JsonIgnore
+    @SerializedName("merged_to")
     private Integer merged_to;
-    private File file;
 
-    // todo: остальные геттеры и сеттеры
+    // todo: serialized поля, геттеры и сеттеры
+    public String getDue_date() {
+        return due_date;
+    }
 
-
-    public Integer getId() {
-        return id;
+    public void setDue_date(String due_date) {
+        this.due_date = due_date;
     }
 
     public String getAssigned_to() {
@@ -43,6 +64,14 @@ public class Ticket {
 
     public void setAssigned_to(String assigned_to) {
         this.assigned_to = assigned_to;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getCreated() {
@@ -149,40 +178,25 @@ public class Ticket {
         this.merged_to = merged_to;
     }
 
-
+    public Integer getId() {
+        return id;
+    }
 
     public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Ticket ticket = (Ticket) o;
+        return Objects.equals(title, ticket.title) && Objects.equals(status, ticket.status)
+                && Objects.equals(priority, ticket.priority) && Objects.equals(queue, ticket.queue);
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDue_date() {
-        return due_date;
-    }
-
-    // обычный сеттер
-    public void setDue_date(String due_date) {
-        this.due_date = due_date;
-    }
-
-    // перегруженный сеттер, который принимает дату и форматирует её в строку по шаблону
-    public void setDue_date(LocalDateTime due_date) {
-        this.due_date = due_date.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss"));
-    }
-
-    public File getFile() {
-        return file;
-    }
-
-    public void setFile(File file) {
-        this.file = file;
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, status, priority, queue);
     }
 }
-

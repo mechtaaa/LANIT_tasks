@@ -10,3 +10,4 @@ public class HelpdeskBasePage extends AbstractPage {
         return new MainMenu(driver);
     }
 }
+

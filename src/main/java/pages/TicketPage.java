@@ -1,6 +1,5 @@
 package pages;
 
-import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 import models.Ticket;
 import org.openqa.selenium.By;
@@ -29,6 +28,7 @@ public class TicketPage extends HelpdeskBasePage {
     private WebElement priority = driver.findElement(By.xpath("//th[text()='Priority']/following-sibling::td[1]"));
     private WebElement description = driver.findElement(By.xpath("//h4[text()='Description']/following-sibling::p[1]"));
 
+
     @Step("Проверить значение полей на странице тикета")
     public void checkTicket(Ticket ticket) {
         Assert.assertTrue(title.getText().contains(ticket.getTitle()), "Имя тикета не соответствует");
@@ -37,7 +37,8 @@ public class TicketPage extends HelpdeskBasePage {
         Assert.assertTrue(email.getText().contains(ticket.getSubmitter_email()), "e-mail Не соответствует");
         Assert.assertTrue(priority.getText().contains(getPriority(ticket.getPriority())), "Приоритет не соответствует");
         Assert.assertTrue(description.getText().contains(ticket.getDescription()), "Имя тикета не соответствует");
-        getScreenShot("checkTicket");
+
+
         // todo: добавить реализацию метода
     }
 }
