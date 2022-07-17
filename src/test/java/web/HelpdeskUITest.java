@@ -34,7 +34,7 @@ public class HelpdeskUITest{
     }
 
     @Step("Создать экземпляр драйвера")
-    private void setupDriver() throws IOException {
+    private void setupDriver() {
         // Создание экземпляра драйвера
         driver = new ChromeDriver();
         // Устанавливаем размер окна браузера, как максимально возможный
@@ -46,7 +46,7 @@ public class HelpdeskUITest{
     }
 
     @Test
-    public void createTicketTest() throws IOException {
+    public void createTicketTest() {
         ticket = buildNewTicket();
         driver.get(System.getProperty("site.url"));
 
@@ -71,15 +71,15 @@ public class HelpdeskUITest{
 
         TicketsPage ticketsPage = new TicketsPage();
         ticketsPage.openTicket(ticket);
-
         TicketPage ticketPage = new TicketPage();
         ticketPage.checkTicket(ticket);
     }
+
     private Ticket buildNewTicket() {
         Ticket ticket = new Ticket();
         ticket.setDue_date("2022-07-28 09:15:00");
         ticket.setAssigned_to("admin");
-        ticket.setTitle("proect");
+        ticket.setTitle("model");
         ticket.setSubmitter_email("admin@example.org");
         ticket.setDescription("test");
         ticket.setPriority(2);

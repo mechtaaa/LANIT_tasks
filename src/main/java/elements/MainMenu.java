@@ -7,8 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import static pages.AbstractPage.getScreenShot;
-
 /** Главное меню (блок элементов) */
 public class MainMenu {
 
@@ -38,20 +36,17 @@ public class MainMenu {
     @Step("Нажать кнопку создания новго тикета")
     public void clickOnNewTicketButton() {
         newTicketButton.click();
-        getScreenShot("clickOnNewTicketButton");
     }
 
     @Step("Нажать кнопку логина")
     public void clickOnLogInButton() {
         logInButton.click();
-        getScreenShot("clickOnLogInButton");
     }
 
     @Step("Найти тикет с помощью поиска")
     public void searchTicket(Ticket ticket) {
         setInputSearch(ticket.getTitle())
                 .clickOnGoButton();
-        getScreenShot("searchTicket");
     }
 
     /* Если после вызова void метода, может потребоваться вызов другого метода этого же класса,
@@ -59,19 +54,17 @@ public class MainMenu {
     @Step("Ввести в поле поиска значение {text}")
     public MainMenu setInputSearch(String text) {
         inputSearch.sendKeys(text);
-        getScreenShot("setInputSearch");
         return this;
     }
 
     @Step("Нажать кнопку поиска")
     public void clickOnGoButton() {
         goButton.click();
-        getScreenShot("clickOnGoButton");
     }
 
     @Step("Получить логин пользователя")
     public String loginedUser() {
-        getScreenShot("loginedUser");
         return logInButton.getText();
     }
 }
+
