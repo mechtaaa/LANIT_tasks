@@ -22,11 +22,7 @@ public abstract class AbstractPage {
     @Attachment(value = "{screenName}", type = "image/png")
     public static byte[] getScreenShot(String screenName){
         Screenshot screenshot = new AShot().takeScreenshot(driver);
-        try {
-            ImageIO.write(screenshot.getImage(), "png", new File("D:" + screenName + ".png"));
-        }catch (IOException e) {
-            e.printStackTrace();
-        }
+            screenshot.getImage();
         return ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
     }
 
