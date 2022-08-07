@@ -1,0 +1,11 @@
+{
+  "due_date": "2022-07-28",
+  "assigned_to": "admin",
+  "title": "Last Test",
+  "submitter_email": "admin@example.org",
+  "status": 4,
+  "priority": 3,
+  "queue": 2,
+  "kbitem": 2,
+  "merged_to": 2
+}
