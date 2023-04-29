@@ -1,92 +1,320 @@
 # Homework
+Тут находится весь проект всех заданий, которые были выполнены на практике летом 2022 года. В компании ЛАНИТ.
+-----------
+## Домашнее задание №1 (Java / Syntax / Kotik)
+Before
+Для проверки кода домашнего задания ваш проект должен находиться под контролем Git и быть привязан к удаленному репозиторию.
 
+Находясь на основной (пока еще пустой) ветке master или main, создайте новую ветку, например homework1 для выполнения текущего задания.
 
+Задание
+Создать в проекте следующую структуру папок "src/main/java/" - это будет корневая директория исходного кода или source. Выражение package (первая строка в java файле), если оно есть, будет относительно данной папки.
 
-## Getting started
+Создать класс Kotik.
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+В классе Kotik объявить переменные экземпляра: name (имя), voice (голос, как мяукает), satiety (сытость), weight (вес).
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+Создать два конструктора класса - со всеми параметрами (в порядке: name, voice, satiety, weight) и без параметров.
 
-## Add your files
+Добавить в класс статическую переменную count, отвечающую за количество созданных экземпляров класса. К переменной должна применяться арифметическая операция «инкремент» при каждом создании экземпляра класса.
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+Создать 5 методов поведения животного: play (играть), sleep (спать), wash (умываться), walk (гулять), hunt (охотиться). Реализовать в данных методах следующую логику:
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/mechtaaa/homework.git
-git branch -M main
-git push -uf origin main
-```
+Если котик сыт (сытость больше нуля), то действие выполняется, например вывести соответствующую информацию в консоль. Показатель сытости при этом должен уменьшиться.
+Если котик голоден, то действие не выполняется (котик просит есть).
+Метод должен возвращать логическое значение, в зависимости от того было выполнено действие или нет.
+Создайте константу METHODS = 5, соответствующую количеству методов поведения животного.
 
-## Integrate with your tools
+Сделать три перегрузки метода eat(), одна из них будет принимать только количество условных единиц сытости и увеличивать на них соответствующую переменную экземпляра, другая единицы сытости и название еды, третья не принимает параметров, но содержит внутри себя вызов перегрузки, принимающей единицы сытости и название еды.
 
-- [ ] [Set up project integrations](https://gitlab.com/mechtaaa/homework/-/settings/integrations)
+Создать в классе Kotik метод liveAnotherDay(), в котором будет цикл на 24 итерации, в каждой из которых будет случайным образом вызываться один из методов котика, отвечающих за его поведение, и если котик вместо выполнения действия будет просить есть - его надо будет покормить (в эту же итерацию).
+Для выбора метода используйте оператор switch.
+Метод должен возвращать массив строк, где каждый элемент массива - описание того, когда и чем занимался котик в формате "час - действие", например:
+0 - играл
+1 - спал
+2 - ел
+...
+23 - играл
 
-## Collaborate with your team
+Изменить модификаторы доступа всех переменных в классе Kotik на private. Для доступа к переменным из других классов создать getters и setters.
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+Создать в корневой директории source класс Application с точкой входа в программу (метод public static void main(String[] args)).
 
-## Test and Deploy
+В этом методе main создать два экземпляр класса Kotik. Для первого экземпляра использовать конструктор с параметрами, для второго конструктор без параметров в сочетании с сеттерами для инициализации переменных.
 
-Use the built-in continuous integration in GitLab.
+Вызвать у любого созданного экземпляра котика метод liveAnotherDay() и вывести в консоль полученный массив (используйте цикл for each).
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+Вывести в консоль имя и вес любого созданного экземпляра котика.
 
-***
+Вывести на экран результат сравнения одинаково ли разговаривают котики. Для этого нужно создать в классе Application статический метод compareVoice, который принимает два объекта класса Kotik и возвращает результат эквивалентности переменных voice каждого объекта.
 
-# Editing this README
+Последней строкой в методе main вывести в консоль количество котиков, созданных в процессе выполнения программы.
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
+Создать в корневой директории пакет animals.
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+Поместить класс Kotik в пакет animals. При необходимости изменить модификаторы доступа методов, чтобы программа скомпилировалась.
 
-## Name
-Choose a self-explaining name for your project.
+Подсказки
+Вызывать случайный метод можно с помощью случайного числа от 1-го до METHODS, где METHODS - число методов, которые планируется вызывать, и оператора switch.
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+Получить случайное число можно с помощью
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+(int) (Math.random() * METHODS) + 1
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+## Домашнее задание №2 (Java / ООП / Зоопарк)
+Before
+Для выполнения текущего задания вам потребуется код из "Домашнее задание №1", поэтому оно должно быть выполнено.
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+Важно сохранить историю изменений (коммитов), поэтому для переноса кода copy-paste не используется, а применяется git.
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+Прежде чем приступить к работе, нужно создать новую ветку (например homework2) на основе ветки предыдущего домашнего задания.
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+Задание
+Создать в проекте следующую стурктуру папок "src/main/java/" - это будет корневая директория исходного кода или source.
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+Создать в корневой директории пакеты: animals, employee, food для животных, сотрудников и еды соответственно.
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+Создать зоопарк, для животных реализовать иерархию классов как на схеме:
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+Animal
+Herbivore
+SomeHerbivore1
+SomeHerbivore2
+Carnivorous
+SomeCarnivorous1
+SomeCarnivorous2
+Конкретных животных должно быть по 3 класса на каждую группу (итого 6 разных типов животных).
+Обязательно должны быть Duck (утка, травоядное), Fish (рыба, хищник или травоядное на выбор) и Kotik.
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+В пакете animals создать 4 интерфейса, определяющие поведение животных: Run, Swim, Fly, Voice, с не default методами run(), swim(), fly() и getVoice() соответственно.
+Метод getVoice() интерфейсе Voice должен иметь тип возвращаемого значения String.
+Классы животных должны реализовывать интерфейсы, соответствующие данным конкретным животным.
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+Создать архитектуру для классов еды в пакете food:
 
-## License
-For open source projects, say how it is licensed.
+Food
+Grass
+Meat
+Добавить животным шкалу сытости - переменную satiety и геттер для получения этого значения.
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+Добавить еде питательность, значение которой можно получить через метод getEnergy(), возвращающий int. Отдельную переменную для питательности не создавать, будем использовать только метод. Питательнсть у мяса и травы должна быть разной.
+
+Все животные едят (знаем поведение), но делают это по-разному (нет общей реализации: кто-то ест траву, а кто-то мясо), по этому в классе Animal должен быть абстрактный метод eat(Food food), который принимает в качестве аргумента объект еды. Реализация данного метода будет в классах наследниках (подумать в каких), при этом нужно стараться избегать дублирования кода.
+Если переданная еда не подходит животному (хищники не едят траву, травоядные не едят мясо), то в консоль должно быть выведено соответствующее предупреждение. Проверку на соответствие типа еды выполнять через instanceof.
+
+Примечание: принципы ООП и строгая статическая типизация в Java позволяют нам не использовать instanceof и getClass() для определения типа объектов, поэтому в данной модели зоопарка правильнее будет создать два метода: eat(Grass grass) для травоядных и eat(Meat meat) для хищников, чтобы не допустить ошибки при кормлении животного. Однако мы в учебных целях специально просим использовать не совсем уместный метод eat(Food food), чтобы создать место потенциальной ошибки и показать на этом примере некоторые языковые конструкции.
+
+В пакете employee cоздать класс рабочего зоопарка (Worker) с методами:
+
+feed(…) – покормить любое животное любой едой. У метода должно быть два параметра – животное и еда.
+getVoice(…) – заставить животное подать голос (вывести на экран то, что говорит конкретное животное). У метода должен быть один параметр – животное, которое издает звук. Метод должен принимать в качестве аргумента только тех животных, которые могут издавать звуки.
+В корневом каталоге программы создать класс Zoo c точкой входа в программу (метод main).
+
+В методе main необходимо создать объекты классов животных, еды, работника зоопарка. Вызвать у объекта рабочего все его методы с разными возможными комбинациями параметров (например попытаться накормить хищника и мясом и травой).
+
+В классе Zoo создать статический метод createPond() без параметров, который возвращает массив с животными, умеющими плавать. В пруду может быть несколько животных одного типа, но самих типов (различных классов) должно быть не менее двух.
+В методе main в цикле вызвать метод swim() у каждого животного из массива, созданного через createPond().
+
+Добавить на ваше усмотрение логику методов. Например, выводить на в консоль результат выполнения. Главное чтобы тело методов не было пустым (разумеется абстрактные методы не в счет).
+
+При добавлении полей и вспомогательных методов помнить про принцип инкапсуляции, и вообще максимально используйте принципы ООП.
+
+## Домашнее задание №3 (Java / Обобщения, коллекции, перечисления, исключения / Зоопарк)
+Before
+Для выполнения текущего задания вам потребуется код из "Домашнее задание №2", поэтому оно должно быть выполнено.
+
+Важно сохранить историю изменений (коммитов), поэтому для переноса кода copy-paste не используется, а применяется git.
+
+Прежде чем приступить к работе, нужно создать новую ветку (например homework3) на основе ветки предыдущего домашнего задания.
+
+Задание
+1. Создать в корневой директории пакет: model.
+
+2. В пакете model создать перечисление Size с тремя перечислимыми константами: SMALL, MEDIUM, LARGE.
+
+3. Добавить в класс Animal абстрактный метод getSize(). В классах конкретных животных должна быть реализация этого метода, которая возвращает константу перечисления Size.
+Kotik и Duck должны иметь размер SMALL. Размер Fish - MEDIUM.
+
+4. Добавить в класс Animal уникальный идентификатор - поле String name.
+4.1. Данное поле должно инициализироваться при создании объека, в консрукторе с одним параметром.
+4.2. Также придется добавить такой консруктор во всех наследниках. Чтобы не дублировать логику кода, пусть консруктор наследников вызывает консруктор базового класса.
+4.3. После добавления конструктора с параметром, компилятор перестанет создавать конструктор по умолчанию (без параметров), поэтому нужно изменить все строки кода с созданием объектов животных (оператор new) - добавить параметр name.
+4.4. Добавить геттер для доступа к полю name.
+
+5. В пакете model создать обобщенный (generic) класс Aviary<> - вольер для животных из предыдущего здания. Должна быть возможность создавать вольеры отдельно для хищников и травоядных (наследников Animal).
+5.1. Добавить в класс Aviary поле Size size и конструктор с одним параметром, иницилизирующим данное поле.
+5.2. Для хранения животных в классе Aviary добавить поле HashMap<>. В качестве ключа использовать уникальный идентификатор (имя животного, name), а в качестве значения использовать животное - объект того же типа, который используется в класс Aviary (универсальный параметр). Сразу проинициализировать поле пустой коллекцией, чтобы избежать NullPointerException.
+
+5.3. Добавьте в класс вольера методы:
+
+addAnimal - добавить животное в вольер (метод принимает объект животного с соответствующим вольеру типом);
+getAnimal - получить ссылку на животное в вольере по name, тип возвращаемого значения должен соответствовать универсальному параметру обобщенного класса;
+removeAnimal - удалить животное из вольера по name, вернуть boolean в зависимости от того было ли указанное животное в вольере;
+6. В пакет model добавить непроверяемое (unchecked) исключение WrongSizeException.
+6.1. Изменить логику работы метода addAnimal так, чтобы исключение WrongSizeException выбрасывалось, если размер животного отличается от размера вольера. Исключение не обрабатывать и не пробрасывать.
+
+7. В пакет food добавить проверяемое (checked) исключение WrongFoodException.
+7.1. Изменить метод eat в классах Carnivorous и Herbivore - заменить вывод в консоль выбрасыванием исключения WrongFoodException, если класс еды не соответствует животному.
+7.2. Метод eat должен пробрасывать исключение WrongFoodException дальше в вызывающий метод (как минимум это будет метод feed в классе Worker).
+7.3. С помощью конструкции try-catch обработать все вызовы метода eat. Результатом обработки исключения должен быть вывод stack trace.
+
+8. В классе Zoo создать и сразу проинициализировать два вольера любого размера:
+
+carnivorousAviary для хищников;
+herbivoreAviary для травоядных.
+9.1. В классе Zoo создать внутренний статический метод fillCarnivorousAviary, который создает некоторое количество объектов хищников и добавляет их в вольер carnivorousAviary.
+Убедиться что в carnivorousAviary невозможно добавить травоядное (код не должен компилироваться).
+
+9.2. В классе Zoo создать внутренний статический метод fillHerbivoreAviary, который создает некоторое количество объектов травоядных и добавляет их в вольер herbivore.
+Убедиться что в herbivoreAviary невозможно добавить хищника (код не должен компилироваться).
+
+10.1. В классе Zoo создать внутренний статический метод getCarnivorous(String name), который возвращает экземпляр класса Carnivorous из коллекции carnivorousAviary по имени name.
+
+10.2. В классе Zoo создать внутренний статический метод getHerbivore(String name), который возвращает экземпляр класса Herbivore из коллекции herbivoreAviary по имени name.
+
+## Домашнее задание (Unit testing)
+Before
+1. Создать в проекте с домашними заданиями новую основную ветку без истории коммитов, например unit-master.
+
+git checkout --orphan ИМЯ_ВЕТКИ
+2. Удалить старые ненужные файлы (если есть), и скопировать файлы и папки из проекта-шаблона https://gitlab.com/lanit-at-school/homework-examples/Calculator
+
+3. Выполнить commit и push на удаленный репозиторий.
+
+4. Из текущего состояния создать ветку unit-develop и приступать к работе.
+
+Задание
+Используя техники тест дизайна, создать набор тест-кейсов, обеспечивающий оптимальное тестовое покрытие калькулятора.
+
+В проекте должна быть следующая структуру папок и файлов, типичная для maven-проектов:
+
+src
+main
+java
+model
+Calculator.java
+CalculatorException.java
+Main.java
+test
+java
+NegativeCalculatorTest.java
+PositiveCalculatorTest.java
+pom.xml
+Чтобы протестировать различные тестовые данные и не дублировать код, следует использовать @DataProvider'ы с названиями методов positiveData и negativeData для классов PositiveCalculatorTest и NegativeCalculatorTest соответственно.
+
+Каждый набор тестовых данных датапровайдера должен содержать (порядок аргументов соблюдать):
+
+оператор "+", "-", "*" или "/" (String);
+первое число (String);
+второе число (String);
+результат (double) - только для позитивных проверок.
+Тестовые данные должны обеспечивать минимально-необходимый набор юнит-тестов и выполнять проверки:
+
+позитивные;
+негативные (ожидаемое исключение: CalculatorException);
+граничные значения (вводимые значения и результат вычисления не должен выходить из диапазона Integer, значения с плавающей точкой допустимы).
+В классах PositiveCalculatorTest и NegativeCalculatorTest создать по одному тестовому методу (методу с аннотацией @Test) positiveTest и negativeTest соответственно. Указать в тестах датапровайдеры.
+
+Тестовые методы должны вызывать метод public static String execute(String[] params) класса Calculator. Данные для params params берутся из датапровайдера. Порядок строк в params должен совпадать с порядком в датапровайдере.
+
+Позитивные тесты должны сравнивать результат с ожидаемым значением (ожидаемое значение также берется из датапровайдера).
+
+В негативных тестах в качестве проверки результата следует ожидать, что калькулятор выбрасывает CalculatorException (непроверяемое исключение).
+
+При TDD подходе на данном этапе создается пустой метод execute в классе Calculator, чтобы программа компилировалась. Затем запускаются тесты. Ожидаемо, что все тесты должны быть failed. После этого пишется код программы, чтобы тесты стали passed.
+У вас Calculator уже написан в шаблонном проекте, требуется только доработать его для прохождения негативных тестов - в случае любых ошибок или превышении результатом граничного значения (Integer), калькулятор должен бросать исключение CalculatorException.
+
+Также у калькулятора должна быть точка входа в программу - метод public static void main(String[] args) в классе Main.
+
+В методе main требуется считать из консоли три строки (оператор и два числа), затем вызвать на этих данных метод execute класса Calculator и вывести результат обратно в консоль.
+Важно: кроме результата в консоль ничего не выводить!
+
+Подсказки
+1. Для считывания с консоли можно использовать класс Scanner
+Scanner in = new Scanner(System.in);
+String line = in.nextLine();
+2. Для определения границ диапазон Integer можно использовать встроенные в класс константы Integer.MIN_VALUE и Integer.MAX_VALUE.
+
+## Домашнее задание №6 (Helpdesk API Testing)
+Before
+1.Создать в проекте с домашними заданиями новую ветку без истории коммитов, например api-master.
+
+git checkout --orphan ИМЯ_ВЕТКИ
+2.Удалить ненужные файлы (если есть), и сделать пустой коммит
+
+git commit --allow-empty -m "СООБЩЕНИЕ КОММИТА"
+затем выполнить push на удаленный репозиторий.
+
+3.Из текущего состояния создать ветку api-develop.
+
+4.Скопировать файлы и папки из проекта-шаблона https://gitlab.com/lanit-at-school/homework-examples/helpdesk-api-test
+
+Задание
+Протестировать систему учета заявок HelpDesk, используя API.
+
+Документация API: https://at-sandbox.workbench.lanit.ru/swagger/
+
+Учетная запись для входа: admin / adminat
+
+Тип авторизации: OAuth 2.0 (Header Prefix: token) https://learning.postman.com/docs/sending-requests/authorization/#oauth-20 
+
+Документация сервиса (руководство пользователя): https://docs.google.com/document/d/13qUAkmFGj3jV3hEnqMlAxitKblA_BgSTKprwEW-Yg88
+
+Авторизация: https://at-sandbox.workbench.lanit.ru/
+(в swagger не корректный base URL, но обычно для сервисов он должен быть указан именно там)
+
+Тест-кейсы:
+
+Создание тикета с высоким приоритетом.
+Негативная проверка: перевода статуса тикета из "Закрыт" в "Открыт".
+Пример API тестов: https://gitlab.com/lanit-at-school/homework-examples/petstore-api-test
+
+Пример взаимодействия с API сервиса Petstore (онлайн магазин домашних животных). В примере в пакете org.example.api.pet проверяются методы раздела PET из документации API для Petstore (https://petstore.swagger.io/).
+
+Задачи:
+
+1.Добавить в класс Ticket поля, соответствующие документации API (swagger). Поля должны иметь ссылочные типы, а их наименования должны совпадать с наименованиями из документации. Это нужно для правильной сериализации объектов.
+
+2.Написать реализацию методов шаблона в классах BaseTest, CreateTicketTest, UpdateTicketTest.
+
+3.Выполнить commit и push, затем создать merge request ветки api-develop в ветку api-master. Убедиться, что изменения (diff) соответствуют проделанной работе.
+
+Подсказка:
+
+Поля в классе POJO-объекта, которые не используются при тестировании (например assigned_to, kbitem, merged_to), можно пометить аннотацией @JsonIgnore, чтобы они не учитывались при сериализации/десериализации. Важно при этом для полей использовать ссылочные типы, например вместо int использовать обертку Integer.
+
+Полный путь к аннотации: com.fasterxml.jackson.annotation.JsonIgnore
+
+Maven dependency: 
+<groupId>com.fasterxml.jackson.core</groupId>
+<artifactId>jackson-annotations</artifactId>
+
+## В проекте из предыдущего домашнего задания (Helpdesk UI Test) создать новую ветку allure
+Добавить отчётность Allure. Для этого потребуется обновить зависимости (включить туда плагин).
+Запустить несколько раз.
+Изучить allure attachment, добавить скриншотер Ashot, добавить прикрепление скриншота в конце каждого шага.
+Выполнить коммит в allure и отправить ветку на удаленный репозиторий.
+Сделать merge request (pull request) ветки allure в ту ветку, с которой вы начали в п. 1.
+
+## Цели
+
+Изучить фреймворк автоматизированного тестирования
+Научиться писать автотесты на Gherkin
+Закрепить навыки использования инструментов АТ
+Задачи
+
+Изучить BDD фреймворк
+- прочитать README.md
+- скопировать проект на локальный компьютер, просмотреть все классы, читая комментарии к коду, и разобраться для чего нужен каждый класс.
+Используя фреймворк, автоматизировать тест-кейсы для проверки Helpdesk.
+API тесты:
+- Создание тикета с высоким приоритетом.
+- Негативная проверка: перевода статуса тикета из "Закрыт" в "Открыт".
+UI тесты:
+- Редактирование созданного тикета (с прикреплением файла в созданный тикет).
+- Сохранение поискового запроса.
+Инструменты
+
+Quick Start BDD Framework - фреймворк с нужными зависимостями, который позволяет сразу начать писать тесты, не отвлекаясь на создание и настройку рабочего окружения. Как правило, вам нужно реализовать только основные элементы теста: сценарий в feature файле, элементы веб страниц (для UI), шаги (действия).
+Helpdesk - песочница или специально выделенная среда для взаимодействия, созданная для обучения в школах тестирования.
+Документация API Helpdesk - описание методов API
